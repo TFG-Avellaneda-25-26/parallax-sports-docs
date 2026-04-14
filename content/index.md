@@ -1,6 +1,6 @@
 ---
-title: Parallax Sports
-description: "Documentation hub for the Parallax Sports platform — a customizable sports events dashboard with multi-channel alert delivery"
+title: Welcome / Bienvenid@!
+description: "Documentation for the Parallax Sports project, a customizable sports events dashboard with multi-channel alert delivery"
 ---
 
 # Parallax Sports
