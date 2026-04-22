@@ -1,29 +1,27 @@
 ---
-title: Welcome / Bienvenid@!
-description: "Documentation for the Parallax Sports project, a customizable sports events dashboard with multi-channel alert delivery"
+title: Bienvenid@
+description: "Documentación del proyecto Parallax Sports, un dashboard personalizable de eventos deportivos con envío de alertas por múltiples canales"
 ---
 
 # Parallax Sports
 
-A customizable sports events dashboard with real-time, multi-channel alert delivery. Built as a full-stack distributed system spanning a Spring Boot API, an Angular frontend, five Ktor microservices, and a self-hosted infrastructure on Proxmox.
+> [!tip] Empieza aquí
+> Si es tu primera vez leyendo esta documentación, comienza por [[architecture-overview|Visión General de la Arquitectura]] para ver cómo encaja todo y luego explora el stack que más te interese.
 
-> [!tip] Start here
-> If this is your first time reading these docs, start with the [[architecture-overview|Architecture Overview]] to see how everything fits together, then explore whichever stack interests you.
+## Secciones
 
-## Sections
+- **[[project/index|Proyecto]]** - La visión general: qué hace la plataforma, el stack tecnológico, el modelo de dominio y un glosario de términos usados en toda la documentación.
 
-- **[[project/index|Project]]** — The big picture: what the platform does, the tech stack, the domain model, and a glossary of terms used throughout.
+- **[[backend/index|Backend]]** - La API de Spring Boot: autenticación, sincronización de datos desde APIs deportivas externas, ciclo de vida de alertas, manejo de excepciones y observabilidad.
 
-- **[[backend/index|Backend]]** — The Spring Boot API: authentication, data sync from external sports APIs, the alert lifecycle, exception handling, and observability.
+- **[[frontend/index|Frontend]]** - El dashboard en Angular: arquitectura Feature-Sliced Design, routing, gestión de estado y animaciones parallax.
 
-- **[[frontend/index|Frontend]]** — The Angular dashboard: Feature-Sliced Design architecture, routing, state management, and the parallax animations.
+- **[[microservices/index|Microservicios]]** - Los workers de alertas en Ktor: bot de Discord, correo mediante Gmail, bot de Telegram, generación de capturas con Playwright y almacenamiento de imágenes en Cloudinary.
 
-- **[[microservices/index|Microservices]]** — The Ktor alert workers: Discord bot, email via Gmail, Telegram bot, screenshot generation with Playwright, and image storage on Cloudinary.
+- **[[infra/index|Infraestructura]]** - Despliegue autohospedado: Docker Compose, proxy inverso con Traefik, Redis, stack de observabilidad (Prometheus + Loki + Grafana) y CI/CD.
 
-- **[[infra/index|Infrastructure]]** — Self-hosted deployment: Docker Compose, Traefik reverse proxy, Redis, the observability stack (Prometheus + Loki + Grafana), and CI/CD.
+- **[[flows/index|Flujos]]** - Cómo se conecta todo: flujos end-to-end que atraviesan múltiples sistemas, desde el envío de alertas hasta el registro de usuarios y la sincronización de datos.
 
-- **[[flows/index|Flows]]** — How things connect: end-to-end flows that cross multiple systems, from alert delivery to user registration to data sync.
+- **[[journal/index|Diario]]** - El lado humano: el equipo, la línea temporal, decisiones de arquitectura, dificultades, mejoras pendientes y cómo se usaron herramientas de IA.
 
-- **[[journal/index|Journal]]** — The human side: the team, the timeline, architectural decisions, struggles, things to improve, and how AI tools were used.
-
-- **[[guides/index|Guides]]** — Practical guides: local setup, contributing, and code documentation standards.
+- **[[guides/index|Guías]]** - Guías prácticas: configuración local, cómo contribuir y estándares de documentación de código.
