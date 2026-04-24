@@ -1,9 +1,9 @@
 ---
-title: Bienvenid@
+title: Parallax Sports
 description: "Documentación del proyecto Parallax Sports, un dashboard personalizable de eventos deportivos con envío de alertas por múltiples canales"
 ---
 
-# Parallax Sports
+# Bienvenid@
 
 > [!tip] Empieza aquí
 > Si es tu primera vez leyendo esta documentación, comienza por [[architecture-overview|Visión General de la Arquitectura]] para ver cómo encaja todo y luego explora el stack que más te interese.
