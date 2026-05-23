@@ -17,5 +17,3 @@ Visión general de la plataforma: qué hace, cómo están organizados los compon
 | [[stack\|Stack tecnológico]]          | Tabla completa de tecnologías con versiones y razón de cada elección.       |
 | [[modelo-dominio\|Modelo de dominio]] | Jerarquía de entidades: Sports → Events → Participants, alertas y usuarios. |
 | [[glosario\|Glosario]]                | Términos propios del proyecto usados en toda la documentación.              |
-
-## Fuentes

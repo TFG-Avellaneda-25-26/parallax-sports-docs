@@ -65,5 +65,3 @@ Ktor era un framework nuevo para el equipo. La organización inicial de los micr
 Usar Angular 21 fue en general una buena experiencia: los Signal Forms son mucho más naturales que los reactivos o los template-driven vistos en clase. El problema llegó al implementar features nuevos de Angular 21 como el `aria-tree` y el `autocomplete` con ARIA completo, que en las demos y en los docs pintaban bien pero en producción requerían un debugging tedioso y poco documentado.
 
 La IA aquí no ayudaba prácticamente nada, lo cual fue positivo en el sentido de que nos obligó a buscarnos la vida, pero costoso en tiempo. También aparecieron bugs curiosos en la combinación señales + View Transition API y en el `aria-tree` que, una vez encontrados, resultaban ser enredos o tonterías que daban más risa que frustración.
-
-## Fuentes

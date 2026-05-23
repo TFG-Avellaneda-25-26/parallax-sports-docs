@@ -15,5 +15,3 @@ Flujos principales del sistema, desde la ingesta de datos externos hasta la entr
 | [[registro-usuario\|Registro de usuario]]                  | Registro, verificación de email por OTP y limpieza de cuentas no verificadas                       |
 | [[sincronizacion-datos\|Sincronización de datos externos]] | Ingesta diaria desde OpenF1, BallDontLie y PandaScore hacia PostgreSQL                             |
 | [[oauth-discord\|OAuth Discord]]                           | Vinculación de cuenta Discord para recibir notificaciones vía bot                                  |
-
-## Fuentes

@@ -33,5 +33,3 @@ Parallax Sports centraliza esa información y la lleva al usuario por los canale
 | Dashboard web con filtros jerárquicos por deporte/liga       | Aplicación móvil nativa                   |
 | Panel de administración para gestión de usuarios y eventos   | Marketplace o monetización                |
 | Infraestructura propia (self-hosted)                         | SaaS multitenant                          |
-
-## Fuentes

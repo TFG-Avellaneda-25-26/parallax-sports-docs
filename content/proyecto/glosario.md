@@ -30,5 +30,3 @@ tags: [proyecto, glosario]
 | **Stream consumer**         | Instancia de `RedisStreamConsumer` (clase abstracta en `common`) que hace poll continuo sobre un stream de Redis con `XREADGROUP`.                                                                                            |
 | **Worker**                  | Microservicio Ktor que consume un stream de alertas y las entrega a un proveedor externo (Discord, Gmail).                                                                                                                    |
 | **XACK + XDEL**             | Comandos Redis para confirmar que un mensaje ha sido procesado (`XACK`) y eliminarlo del stream (`XDEL`). Se ejecutan _antes_ de enviar el callback a Spring para no bloquear el loop en caso de que el callback falle.       |
-
-## Fuentes

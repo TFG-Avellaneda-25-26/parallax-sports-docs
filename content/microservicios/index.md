@@ -18,5 +18,3 @@ Los microservicios de Parallax Sports están implementados en Kotlin con el fram
 - [[ms-playwright|ms-playwright]]: Renderizado de capturas de pantalla con Chromium headless
 
 > **Nota:** El microservicio `ms-telegram` existe únicamente como binario compilado en el directorio `bin/` y no forma parte del proyecto Gradle activo. No está documentado en esta sección.
-
-## Fuentes

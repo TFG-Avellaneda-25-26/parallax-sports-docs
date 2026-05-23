@@ -18,5 +18,3 @@ tags:
 | [[frontend/view-transitions\|View Transitions API]]       | Efecto ripple de cambio de tema mediante la View Transitions API y su integración con GSAP.                       |
 | [[frontend/autenticacion\|Autenticación]]                 | Estrategia de autenticación con HttpOnly cookies, interceptores y guards.                                         |
 | [[frontend/proxy-y-configuracion\|Proxy y configuración]] | Configuración del proxy Angular en desarrollo y nginx en producción.                                              |
-
-## Fuentes

@@ -22,5 +22,3 @@ Servicio principal desarrollado con Spring Boot. Expone la API REST, gestiona la
 | [[manejo-excepciones\|Manejo de excepciones]]      | Problem Details RFC 7807, jerarquía de excepciones y auditoría AOP.          |
 | [[observabilidad\|Observabilidad]]                 | Métricas Micrometer, trazabilidad MDC y endpoints Actuator.                  |
 | [[api-reference\|Referencia de la API]]            | Tabla completa de endpoints REST agrupados por módulo.                       |
-
-## Fuentes

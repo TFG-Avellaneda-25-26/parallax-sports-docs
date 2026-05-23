@@ -40,17 +40,17 @@ tags: [infra, docker, devops]
 
 ## Observabilidad
 
-| Servicio            | Config montada                                       | Puerto |
-| ------------------- | ---------------------------------------------------- | ------ |
-| `loki`              | `./loki/loki-config.yml`                             | 3100   |
-| `prometheus`        | `./prometheus/prometheus.yml`, `./prometheus/rules/` | 9090   |
-| `alloy`             |: accede al Docker socket (read-only) para discovery | 12345  |
-| `alertmanager`      | `./alertmanager/config.yml`                          | 9093   |
-| `grafana`           | `./grafana/provisioning/`                            | 3000   |
-| `cadvisor`          |:                                                    | 8081   |
-| `node-exporter`     |:                                                    | 9100   |
-| `postgres-exporter` |:                                                    | 9187   |
-| `redis-exporter`    |:                                                    | 9121   |
+| Servicio            | Config montada                                                      | Puerto |
+| ------------------- | ------------------------------------------------------------------- | ------ |
+| `loki`              | `./loki/loki-config.yml`                                            | 3100   |
+| `prometheus`        | `./prometheus/prometheus.yml`, `./prometheus/rules/`                | 9090   |
+| `alloy`             | `./alloy/config.alloy`; accede al Docker socket (ro) para discovery | 12345  |
+| `alertmanager`      | `./alertmanager/config.yml`                                         | 9093   |
+| `grafana`           | `./grafana/provisioning/`                                           | 3000   |
+| `cadvisor`          | Sin config; monta `/`, `/sys`, `/var/lib/docker` (ro)               | 8081   |
+| `node-exporter`     | Sin config; monta `/host` (ro)                                      | 9100   |
+| `postgres-exporter` | Sin config; cadena de conexión via `DATA_SOURCE_NAME`               | 9187   |
+| `redis-exporter`    | Sin config; dirección via `--redis.addr`                            | 9121   |
 
 Prometheus tiene remote-write receiver habilitado y retención de 30 días. Grafana tiene dashboards provisionados automáticamente.
 
@@ -63,11 +63,34 @@ En teacher siempre activas; en dev requieren perfil `apps`.
 | `spring-boot`   | postgres (healthy), redis (healthy) | `SPRING_*`, `APP_*`; monta docker.sock para `LoadTestRunnerService` |
 | `ms-discord`    | redis (healthy)                     | `SERVICE_NAME`, `REDIS_HOST/PORT`, `SPRING_BASE_URL`                |
 | `ms-email`      | redis (healthy)                     | ídem                                                                |
-| `ms-cloudinary` |:                                   | sin dependencia de Redis                                            |
-| `ms-playwright` |:                                   | sin dependencia de Redis                                            |
+| `ms-cloudinary` | —                                   | sin dependencia de Redis                                            |
+| `ms-playwright` | —                                   | sin dependencia de Redis                                            |
 | `angular`       | spring-boot (healthy)               | nginx SPA                                                           |
 
 Healthcheck de `spring-boot`: `GET /actuator/health`.
+
+## Perfiles (`docker-compose.yml` dev)
+
+El compose de desarrollo usa [Docker Compose profiles](https://docs.docker.com/compose/profiles/) para poder levantar solo la infraestructura sin las apps, lo habitual en desarrollo local donde las apps corren directamente en la JVM/Node.
+
+| Perfil      | Servicios incluidos                                                      | Caso de uso                                 |
+| ----------- | ------------------------------------------------------------------------ | ------------------------------------------- |
+| _(ninguno)_ | postgres, redis, toda la observabilidad, cloudflared                     | Infra sola para dev local                   |
+| `apps`      | spring-boot, ms-discord, ms-email, ms-cloudinary, ms-playwright, angular | Despliegue completo desde el registry local |
+| `loadtest`  | k6                                                                       | Tests de carga                              |
+
+```bash
+# Solo infraestructura (dev local — apps corren fuera de Docker)
+docker compose up -d
+
+# Infraestructura + apps (desde registry local en :5000)
+docker compose --profile apps up -d
+
+# Todo incluyendo k6
+docker compose --profile apps --profile loadtest up -d
+```
+
+En `docker-compose.teacher.yml` los servicios de app no tienen perfil, así que siempre arrancan con `up -d`.
 
 ## Healthchecks
 
@@ -88,5 +111,3 @@ data/
 ├── jenkins/
 └── registry/
 ```
-
-## Fuentes

@@ -138,5 +138,3 @@ Reenvío: `POST /api/auth/resend-verification`
 ## Limpieza de cuentas no verificadas
 
 `UnverifiedUserCleanupScheduler` se ejecuta periódicamente y elimina los usuarios cuyo email sigue sin verificar transcurrido el período de gracia configurado. Esto evita la acumulación de cuentas fantasma en la base de datos.
-
-## Fuentes

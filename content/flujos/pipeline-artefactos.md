@@ -117,5 +117,3 @@ eventId + sportKey + status + template + timezone
 ```
 
 Si cualquiera de estos campos cambia (p. ej. el status del evento pasa a `LIVE`), se genera un nuevo hash y se produce un nuevo render.
-
-## Fuentes

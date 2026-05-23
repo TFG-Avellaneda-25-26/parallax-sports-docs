@@ -17,5 +17,3 @@ Documentación de la infraestructura de Parallax Sports: contenedores, pipelines
 - [[redis|Redis]]: Configuración, pools y patrones de uso (blacklist JWT, OTP, streams de alertas).
 - [[observabilidad-stack|Stack de observabilidad]]: Alloy, Prometheus, Loki, Grafana, Alertmanager y exporters.
 - [[proxmox|Proxmox]]: Servidor físico y contenedor LXC donde corre toda la infraestructura.
-
-## Fuentes

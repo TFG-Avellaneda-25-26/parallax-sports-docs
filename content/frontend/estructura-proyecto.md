@@ -121,5 +121,3 @@ src/
 | `fonts.css`        | `@font-face` y variables de tipografía                                                                                                           |
 | `ng-otp-input.css` | Overrides de estilos para el componente `ng-otp-input`                                                                                           |
 | `theme.css`        | Custom properties CSS para tema claro/oscuro (`--color-*`, `--bg-*`, etc.) definidas en `:root[data-theme="light"]` y `:root[data-theme="dark"]` |
-
-## Fuentes

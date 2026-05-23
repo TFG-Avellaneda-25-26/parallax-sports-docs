@@ -70,5 +70,3 @@ Establece `isRunning = false`. El loop termina al finalizar la iteración en cur
 | `provider.send.seconds`             | Timer   | channel                |
 | `artifact.fetch.seconds`            | Timer   |:                      |
 | `callback.to.spring.total`          | Counter | status                 |
-
-## Fuentes

@@ -145,5 +145,3 @@ Controllers públicos de datos deportivos y repositorios de entidades del domini
 Gestión del perfil de usuario y configuración personal.
 
 Clases clave: `UserController`, `UserSettingsController`.
-
-## Fuentes

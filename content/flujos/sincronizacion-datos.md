@@ -90,5 +90,3 @@ Endpoints disponibles para forzar una sincronización sin esperar al cron:
 | `POST /api/admin/basketball/sync`        | Solo baloncesto (NBA + WNBA) |
 | `POST /api/admin/formula1/sync/{year}`   | F1 de un año específico      |
 | `POST /api/admin/pandascore/sync/{game}` | Un esport específico         |
-
-## Fuentes

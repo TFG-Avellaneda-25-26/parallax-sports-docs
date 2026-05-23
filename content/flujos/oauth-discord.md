@@ -110,5 +110,3 @@ Restricciones:
 
 - No es posible desvincular **todas** las identidades si es el único método de acceso a la cuenta.
 - Spring valida que el usuario tenga al menos otro método de autenticación activo antes de permitir la desvinculación.
-
-## Fuentes

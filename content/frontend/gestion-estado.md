@@ -182,5 +182,3 @@ Las claves compuestas usan el formato `sportKey::competitionName::id`.
 **Computed:** `flatNodes`, `activeSectionId`
 
 El árbol se inicializa con la constante estática `SETTINGS_TREE` (4 nodos: Account, Preferences, Notifications, Admin).
-
-## Fuentes

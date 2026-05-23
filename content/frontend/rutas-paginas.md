@@ -83,5 +83,3 @@ Evita que un usuario ya autenticado vuelva a la landing o al formulario de login
 | `DashboardPage` | `/dashboard` | ChangeDetection OnPush; sentinel ScrollTrigger para infinite scroll; alterna vista cards/table mediante `DashboardViewStore`                  |
 | `SettingsPage`  | `/settings`  | Provee `SettingsNavStore`; sidebar `SettingsNavComponent` + `RouterOutlet` para sub-rutas                                                     |
 | `ErrorPage`     | `/error`     | Renderiza `ErrorDisplayComponent` con el `ProblemDetails` almacenado en `ErrorStore`                                                          |
-
-## Fuentes

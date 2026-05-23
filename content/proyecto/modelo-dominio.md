@@ -160,5 +160,3 @@ Imagen PNG generada para el evento, almacenada en Cloudinary. Identificada por `
 ## Esquema SQL
 
 El esquema completo está en [`assets/schema.sql`](../assets/schema.sql).
-
-## Fuentes

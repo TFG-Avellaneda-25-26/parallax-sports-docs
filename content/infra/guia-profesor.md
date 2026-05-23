@@ -144,7 +144,7 @@ El microservicio `ms-email` envía correos mediante la **Gmail API con OAuth2**.
 
 Si se arranca desde cero sin volúmenes previos (o se usó `down -v`), hay que autorizar la cuenta de Gmail una vez:
 
-1. Con la pila ya levantada, abrir en el navegador:
+1. Con el stack ya levantado, abrir en el navegador:
 
    ```
    http://TU_IP:8084/auth/google/login
@@ -153,8 +153,3 @@ Si se arranca desde cero sin volúmenes previos (o se usó `down -v`), hay que a
 2. Google redirige a su pantalla de consentimiento (cuenta del proyecto: `daw590779@gmail.com`). Aceptar los permisos de `gmail.send`.
 
 3. Google redirige a `http://localhost:8084/auth/callback` y el servicio responde `Success Refresh token saved in redis`. A partir de ese momento el envío de correos funciona con normalidad.
-
-> [!note]
-> `http://localhost:8084/auth/callback` debe estar registrada como URI de redirección autorizada en el proyecto de Google Cloud del TFG. Si se cambia la IP/puerto habría que actualizar también las credenciales OAuth en Google Cloud Console.
-
-## Fuentes

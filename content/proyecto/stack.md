@@ -83,5 +83,3 @@ tags: [proyecto, stack]
 | Docker Hub         |:                   | Registro de imágenes para evaluadores (`diegokoes/parallax-*`) |
 | Proxmox VE         |:                   | Hipervisor del servidor físico                                 |
 | LXC                |:                   | Contenedor Linux donde corre toda la infraestructura           |
-
-## Fuentes

@@ -158,5 +158,3 @@ Acceso: **API Key** (`BotApiKeyFilter`)
 | Método | Ruta                | Descripción                                                      |
 | ------ | ------------------- | ---------------------------------------------------------------- |
 | GET    | `/check-permission` | Comprueba si un usuario Discord tiene permiso para una operación |
-
-## Fuentes

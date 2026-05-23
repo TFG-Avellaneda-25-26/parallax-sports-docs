@@ -724,5 +724,3 @@ Imagen pre-renderizada para adjuntar a alertas.
 | `sport_id` | UUID PK          | Clave compuesta        |
 | `mode`     | enum             | `DM` / `GUILD_CHANNEL` |
 | `guild_id` | varchar nullable |                        |
-
-## Fuentes

@@ -123,5 +123,3 @@ Para cada resultado terminal se crea un registro `AlertDeliveryAttempt`.
 | Fallo permanente       | `ProviderPermanentFailureException` → sin reintento, ACK y descarte |
 
 El backoff exponencial se calcula en el worker; Spring solo registra `next_retry_at_utc` cuando el worker lo indica en el callback.
-
-## Fuentes

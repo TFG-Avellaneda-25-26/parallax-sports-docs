@@ -129,5 +129,3 @@ Para cada evento ingestado:
 1. Valida la transición de estado (sent / failed_permanent / failed_retryable).
 2. Crea un registro `AlertDeliveryAttempt`.
 3. Actualiza el estado final en `UserEventAlert`.
-
-## Fuentes

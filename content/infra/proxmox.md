@@ -21,5 +21,3 @@ Parallax Sports se autoaloja en un servidor físico con Proxmox VE.
 - Almacenamiento: ZFS / local-lvm
 - Acceso SSH y gestión
 - Estrategia de backup
-
-## Fuentes

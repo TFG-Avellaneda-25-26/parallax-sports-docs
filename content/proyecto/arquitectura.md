@@ -96,5 +96,3 @@ graph TB
 | HTTP `/api/internal/*`        | Ktor workers → Spring (callbacks)    | REST con `X-Api-Key`  |
 | HTTP `/api/internal/render/*` | ms-playwright → Spring (render HTML) | REST con `X-Api-Key`  |
 | HTTP `/check`, `/upload`      | ms-playwright → ms-cloudinary        | REST                  |
-
-## Fuentes
