@@ -96,6 +96,42 @@ En `docker-compose.teacher.yml` los servicios de app no tienen perfil, así que 
 
 Todos los servicios tienen healthcheck definido. Los servicios de app esperan a que postgres y redis estén `healthy` antes de arrancar.
 
+## Reinicio del stack (dev)
+
+Para reiniciar todo el stack (infra + apps + k6) en el LXC de desarrollo:
+
+```bash
+cd /opt/stack
+
+# 1. Parar todo lo que esté corriendo bajo cualquier perfil
+COMPOSE_PROFILES=apps,loadtest docker compose down
+
+# 2. Arrancar primero la infra (sin perfil) — esto levanta el registry
+docker compose up -d
+
+# 3. Ahora sí, pull de las imágenes de app desde el registry local
+COMPOSE_PROFILES=apps,loadtest docker compose pull
+
+# 4. Levantar apps + k6
+COMPOSE_PROFILES=apps,loadtest docker compose up -d
+```
+
+> ⚠️ **Importante:** el `registry` (puerto 5000) forma parte del propio compose y no tiene perfil, así que `docker compose down` también lo tira. Si haces `docker compose pull` justo después, fallará con `connection refused` porque las imágenes `localhost:5000/parallax-*` no se pueden resolver sin registry. **Hay que levantar la infra primero** y luego pullear.
+
+Alternativa rápida si las imágenes ya están en caché local (no necesitas la versión más reciente):
+
+```bash
+cd /opt/stack
+COMPOSE_PROFILES=apps,loadtest docker compose up -d
+```
+
+### Reiniciar un solo servicio
+
+```bash
+# Forzar recreación de un único servicio de app (p. ej. tras un build manual)
+COMPOSE_PROFILES=apps docker compose up -d --force-recreate ms-cloudinary
+```
+
 ## Volúmenes
 
 El directorio `./data/` en el host contiene:

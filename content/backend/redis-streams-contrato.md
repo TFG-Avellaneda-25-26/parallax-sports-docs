@@ -18,17 +18,14 @@ Define el protocolo entre el productor (Spring Boot) y los consumidores (workers
 
 ## Streams por canal
 
-| Stream               | Consumer Group     | Worker          |
-| -------------------- | ------------------ | --------------- |
-| `alerts.discord.v1`  | `discord-workers`  | `ms-discord`    |
-| `alerts.email.v1`    | `email-workers`    | `ms-email`      |
-| `alerts.telegram.v1` | `telegram-workers` | _(placeholder)_ |
+| Stream              | Consumer Group    | Worker       |
+| ------------------- | ----------------- | ------------ |
+| `alerts.discord.v1` | `discord-workers` | `ms-discord` |
+| `alerts.email.v1`   | `email-workers`   | `ms-email`   |
 
 ---
 
 ## Payload v1
-
-Todos los campos son `String`. Booleanos como `"true"` / `"false"`. Campos opcionales pueden estar ausentes.
 
 ### Campos comunes
 

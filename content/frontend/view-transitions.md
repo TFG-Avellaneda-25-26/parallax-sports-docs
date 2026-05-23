@@ -14,12 +14,12 @@ tags:
 
 - [CSS Wrapped 2025: View Transition Groups](https://chrome.dev/css-wrapped-2025/#nested-view-transition-groups)
 - [Theme switch con View Transitions (StackBlitz)](https://stackblitz.com/edit/stackblitz-starters-cklnkm?file=src%2Fmain.ts)
-- [awww – inspiración del theme switch](https://codeberg.org/LGFae/awww)
+- [awww – inspiración del theme switch en Hyprland](https://codeberg.org/LGFae/awww)
 - [caniuse.com](https://caniuse.com)
 
 ---
 
-El cambio de tema (claro ↔ oscuro) se anima con un efecto de onda expansiva (ripple) que parte del punto exacto donde el usuario hace clic. Se implementa con la View Transitions API del browser, sin librerías adicionales.
+El cambio de tema (claro <> oscuro) se anima con un efecto de onda expansiva (ripple) que parte del punto exacto donde el usuario hace clic. Se implementa con la View Transitions API del browser, sin librerías adicionales.
 
 ## Las 3 fases
 
@@ -83,22 +83,10 @@ La View Transitions API toma snapshots del DOM. Si GSAP está animando SVG en es
 
 ---
 
-## Compatibilidad
-
-| Browser        | Soporte         |
-| -------------- | --------------- |
-| Chrome 111+    | Nativo          |
-| Safari 18+     | Nativo          |
-| Firefox (2026) | No implementado |
-
-**Fallback:** antes de llamar a `startViewTransition`, se comprueba la disponibilidad:
-
 ```typescript
 if ("startViewTransition" in document) {
   document.startViewTransition(callback)
 } else {
-  callback() // cambio de tema instantáneo
+  callback()
 }
 ```
-
-Los usuarios en Firefox obtienen el cambio de tema sin animación, sin errores.
