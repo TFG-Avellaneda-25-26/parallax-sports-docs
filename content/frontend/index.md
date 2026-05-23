@@ -1,4 +1,9 @@
-# Parallax Sports - Frontend
+---
+title: Index Genérico del Frontend
+description: Documentación sobre el funcionamiento de la aplicación por parte del frontend explicado de una manera genérica.
+---
+
+## Introducción
 
 Este repositorio contiene el código fuente del frontend para el proyecto Parallax Sports. Esta aplicación web está construida utilizando las últimas características de Angular 21 junto con una arquitectura modular estricta para garantizar la escalabilidad y el mantenimiento a largo plazo.
 
