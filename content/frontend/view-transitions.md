@@ -1,5 +1,5 @@
 ---
-title: View Transitions API: Ripple de tema
+title: "View Transitions API: Ripple de tema"
 description: Implementación del efecto ripple de cambio de tema mediante la View Transitions API y su integración con GSAP en Parallax Sports.
 tags:
   - frontend

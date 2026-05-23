@@ -1,5 +1,5 @@
 ---
-title: OAuth Discord: Vinculación de cuenta
+title: "OAuth Discord: Vinculación de cuenta"
 description: "Flujo OAuth2 para vincular la cuenta de Discord al perfil de Parallax Sports y recibir notificaciones via bot"
 tags: [flujos, oauth, discord, autenticacion, vinculacion]
 ---
