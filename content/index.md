@@ -2,13 +2,12 @@
 title: Parallax Sports
 description: "Documentación del proyecto Parallax Sports, un dashboard personalizable de eventos deportivos con envío de alertas por múltiples canales"
 ---
-
-# Bienvenid@
+# BIENVENID@!
 
 > [!tip] Empieza aquí
-> Si es tu primera vez leyendo esta documentación, comienza por [[architecture-overview|Visión General de la Arquitectura]] para ver cómo encaja todo y luego explora el stack que más te interese.
+> Si es tu primera vez leyendo esta documentación, comienza  por ganar una [[arquitectura|visión general de la arquitectura]] del projecto para ver cómo encaja todo y luego explora el stack que más te interese.
 
-## Secciones
+## SECCIONES
 
 - **[[project/index|Proyecto]]** - Visión general: qué hace la plataforma, el stack, el modelo de dominio...
 
