@@ -1,6 +1,6 @@
 ---
 title: Animaciones GSAP
-description: Plugins GSAP registrados y animaciones por componente en Parallax Sports: MorphSVG, ScrollTrigger, DrawSVG, TextPlugin, Flip.
+description: "Plugins GSAP registrados y animaciones por componente en Parallax Sports: MorphSVG, ScrollTrigger, DrawSVG, TextPlugin, Flip."
 tags:
   - frontend
   - animaciones

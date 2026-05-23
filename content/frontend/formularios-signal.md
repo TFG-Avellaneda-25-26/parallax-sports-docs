@@ -1,6 +1,6 @@
 ---
 title: Formularios Signal
-description: Formularios reactivos basados en señales con @angular/forms/signals en Parallax Sports: AuthForm, Settings forms, OTP dialog.
+description: "Formularios reactivos basados en señales con @angular/forms/signals en Parallax Sports: AuthForm, Settings forms, OTP dialog."
 tags:
   - frontend
   - formularios

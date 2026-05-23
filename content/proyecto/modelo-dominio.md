@@ -1,6 +1,6 @@
 ---
 title: Modelo de dominio
-description: Jerarquía de entidades de Parallax Sports: Sports, Competitions, Events, Participants, Users y Alerts.
+description: "Jerarquía de entidades de Parallax Sports: Sports, Competitions, Events, Participants, Users y Alerts."
 tags: [proyecto, dominio, base-de-datos]
 aliases: [dominio, entidades]
 ---
@@ -49,9 +49,9 @@ Edición temporal de una Competition.
 
 Lugar físico o virtual donde ocurre el evento.
 
-| Campo      | Tipo | Notas                                                      |
-| ---------- | ---- | ---------------------------------------------------------- |
-| `kind`     | text | `stadium`, `circuit`, `arena`, `other`                     |
+| Campo      | Tipo | Notas                                                     |
+| ---------- | ---- | --------------------------------------------------------- |
+| `kind`     | text | `stadium`, `circuit`, `arena`, `other`                    |
 | `timezone` | text | Zona horaria IANA del recinto: usada para localizar horas |
 
 ### Event
@@ -66,7 +66,7 @@ Evento concreto con fecha y estado.
 | `parent_event_id`   | bigint FK self | Eventos hijos (sesiones F1)                               |
 | `participants_mode` | text           | `none`, `teams`, `field`                                  |
 | `external_provider` | text           | `openf1`, `balldontlie`, `pandascore-lol`…                |
-| `external_id`       | text           | ID en el sistema origen: clave de deduplicación          |
+| `external_id`       | text           | ID en el sistema origen: clave de deduplicación           |
 
 ### Participant
 

@@ -1,6 +1,6 @@
 ---
 title: Gestión de estado con NgRx Signals
-description: Stores NgRx Signals del frontend de Parallax Sports: estado, computed signals y métodos de cada store.
+description: "Stores NgRx Signals del frontend de Parallax Sports: estado, computed signals y métodos de cada store."
 tags:
   - frontend
   - estado
@@ -29,7 +29,7 @@ Todos los stores usan la API `signalStore` de `@ngrx/signals`. No existe NgRx St
 
 | Método                 | Acción                                                         |
 | ---------------------- | -------------------------------------------------------------- |
-| `loadUser()`           | GET `/api/users/me`: carga el usuario autenticado             |
+| `loadUser()`           | GET `/api/users/me`: carga el usuario autenticado              |
 | `markEmailVerified()`  | Actualiza `user.emailVerified` en local sin petición adicional |
 | `updateEmail()`        | PATCH `/api/users/email`                                       |
 | `updatePassword()`     | PATCH `/api/users/password`                                    |
@@ -78,7 +78,7 @@ Al completar la autenticación con éxito: llama a `UserStore.loadUser()` y nave
 | Método                | Acción                                                                          |
 | --------------------- | ------------------------------------------------------------------------------- |
 | `loadInitialEvents()` | GET `/api/events` con ventana de 3 meses desde hoy; llamado por `eventResolver` |
-| `loadMore()`          | GET `/api/events?cursor={nextCursor}`: paginación cursor-based                 |
+| `loadMore()`          | GET `/api/events?cursor={nextCursor}`: paginación cursor-based                  |
 | `clearEvents()`       | Vacía el estado local                                                           |
 
 ---

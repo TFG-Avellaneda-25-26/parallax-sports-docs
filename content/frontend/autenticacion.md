@@ -1,6 +1,6 @@
 ---
 title: Autenticación frontend
-description: Estrategia de autenticación del frontend de Parallax Sports: HttpOnly cookies, interceptores HTTP y guards de ruta.
+description: "Estrategia de autenticación del frontend de Parallax Sports: HttpOnly cookies, interceptores HTTP y guards de ruta."
 tags:
   - frontend
   - autenticacion

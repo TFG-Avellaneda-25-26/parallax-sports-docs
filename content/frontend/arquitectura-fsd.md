@@ -1,6 +1,6 @@
 ---
 title: Arquitectura Feature-Sliced Design
-description: Metodología Feature-Sliced Design aplicada a Angular 21 en Parallax Sports: capas, regla de importación, Sheriff y path aliases.
+description: "Metodología Feature-Sliced Design aplicada a Angular 21 en Parallax Sports: capas, regla de importación, Sheriff y path aliases."
 tags:
   - frontend
   - arquitectura

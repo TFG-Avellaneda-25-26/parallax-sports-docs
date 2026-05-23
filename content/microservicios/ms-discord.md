@@ -1,6 +1,6 @@
 ---
 title: ms-discord
-description: Microservicio de Discord: bot JDA multi-guild y consumidor de alertas que enruta embeds a canales de servidor o DMs según las preferencias del usuario.
+description: "Microservicio de Discord: bot JDA multi-guild y consumidor de alertas que enruta embeds a canales de servidor o DMs según las preferencias del usuario."
 tags:
   - microservicios
   - discord
