@@ -1,10 +1,10 @@
 ---
-title: OAuth Discord — Vinculación de cuenta
+title: OAuth Discord: Vinculación de cuenta
 description: "Flujo OAuth2 para vincular la cuenta de Discord al perfil de Parallax Sports y recibir notificaciones via bot"
 tags: [flujos, oauth, discord, autenticacion, vinculacion]
 ---
 
-# OAuth Discord — Vinculación de cuenta
+# OAuth Discord: Vinculación de cuenta
 
 Discord se usa en Parallax Sports de dos formas distintas:
 
@@ -13,7 +13,7 @@ Discord se usa en Parallax Sports de dos formas distintas:
 
 Para recibir notificaciones por Discord, el usuario debe vincular su cuenta de Discord a su perfil de Parallax Sports.
 
-## Diagrama de secuencia — vinculación desde Discord
+## Diagrama de secuencia: vinculación desde Discord
 
 ```mermaid
 sequenceDiagram
@@ -45,7 +45,7 @@ sequenceDiagram
         Spring->>DB: Crea usuario nuevo (email_verified=true)
     end
 
-    Spring->>Spring: OAuth2SuccessHandler — emite JWT pair (HttpOnly cookies)
+    Spring->>Spring: OAuth2SuccessHandler: emite JWT pair (HttpOnly cookies)
     Spring-->>SPA: Redirige a APP_FRONTEND_URL/dashboard
 
     SPA->>Spring: GET /api/users/me (UserStore.loadUser)

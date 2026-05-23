@@ -1,6 +1,6 @@
 ---
 title: Decisiones
-description: "Decisiones técnicas y arquitectónicas relevantes — formato ADR simplificado"
+description: "Decisiones técnicas y arquitectónicas relevantes: formato ADR simplificado"
 tags: [diario, decisiones, arquitectura]
 ---
 

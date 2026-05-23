@@ -10,16 +10,16 @@ description: "Documentación del proyecto Parallax Sports, un dashboard personal
 
 ## SECCIONES
 
-- **[[proyecto/index|Proyecto]]** — Visión general: qué hace la plataforma, arquitectura, stack tecnológico y modelo de dominio.
+- **[[proyecto/index|Proyecto]]**: Visión general: qué hace la plataforma, arquitectura, stack tecnológico y modelo de dominio.
 
-- **[[backend/index|Backend]]** — La API de Spring Boot: autenticación, sincronización de datos deportivos externos, ciclo de vida de alertas, manejo de excepciones y observabilidad.
+- **[[backend/index|Backend]]**: La API de Spring Boot: autenticación, sincronización de datos deportivos externos, ciclo de vida de alertas, manejo de excepciones y observabilidad.
 
-- **[[frontend/index|Frontend]]** — El dashboard en Angular: arquitectura Feature-Sliced Design, routing, gestión de estado, formularios signal y animaciones.
+- **[[frontend/index|Frontend]]**: El dashboard en Angular: arquitectura Feature-Sliced Design, routing, gestión de estado, formularios signal y animaciones.
 
-- **[[microservicios/index|Microservicios]]** — Workers de alertas en Ktor: bot de Discord, correo por Gmail, capturas con Playwright e imágenes en Cloudinary.
+- **[[microservicios/index|Microservicios]]**: Workers de alertas en Ktor: bot de Discord, correo por Gmail, capturas con Playwright e imágenes en Cloudinary.
 
-- **[[infra/index|Infraestructura]]** — Self-hosting en Proxmox/LXC: Docker Compose, Redis, stack de observabilidad (Prometheus + Loki + Grafana) y Jenkins.
+- **[[infra/index|Infraestructura]]**: Self-hosting en Proxmox/LXC: Docker Compose, Redis, stack de observabilidad (Prometheus + Loki + Grafana) y Jenkins.
 
-- **[[flujos/index|Flujos]]** — Flujos end-to-end: entrega de alertas, pipeline de artefactos, registro de usuario, sincronización de datos y OAuth Discord.
+- **[[flujos/index|Flujos]]**: Flujos end-to-end: entrega de alertas, pipeline de artefactos, registro de usuario, sincronización de datos y OAuth Discord.
 
-- **[[diario/index|Diario]]** — Proceso de desarrollo: equipo, decisiones técnicas, dificultades, deuda técnica y uso de IA.
+- **[[diario/index|Diario]]**: Proceso de desarrollo: equipo, decisiones técnicas, dificultades, deuda técnica y uso de IA.

@@ -14,8 +14,8 @@ tags: [infra, docker, devops]
 
 **`docker-compose.yml` (dev) incluye además:**
 
-- `registry:2` — Docker Registry local en el puerto 5000 para las imágenes construidas por Jenkins
-- `jenkins` — CI/CD; monta `/var/run/docker.sock` y `/opt/stack`; puerto 8090
+- `registry:2`: Docker Registry local en el puerto 5000 para las imágenes construidas por Jenkins
+- `jenkins`: CI/CD; monta `/var/run/docker.sock` y `/opt/stack`; puerto 8090
 - Los servicios de app se despliegan solo con `COMPOSE_PROFILES=apps` (perfil requerido)
 
 **`docker-compose.teacher.yml` (evaluación):**
@@ -44,13 +44,13 @@ tags: [infra, docker, devops]
 | ------------------- | ---------------------------------------------------- | ------ |
 | `loki`              | `./loki/loki-config.yml`                             | 3100   |
 | `prometheus`        | `./prometheus/prometheus.yml`, `./prometheus/rules/` | 9090   |
-| `alloy`             | — accede al Docker socket (read-only) para discovery | 12345  |
+| `alloy`             |: accede al Docker socket (read-only) para discovery | 12345  |
 | `alertmanager`      | `./alertmanager/config.yml`                          | 9093   |
 | `grafana`           | `./grafana/provisioning/`                            | 3000   |
-| `cadvisor`          | —                                                    | 8081   |
-| `node-exporter`     | —                                                    | 9100   |
-| `postgres-exporter` | —                                                    | 9187   |
-| `redis-exporter`    | —                                                    | 9121   |
+| `cadvisor`          |:                                                    | 8081   |
+| `node-exporter`     |:                                                    | 9100   |
+| `postgres-exporter` |:                                                    | 9187   |
+| `redis-exporter`    |:                                                    | 9121   |
 
 Prometheus tiene remote-write receiver habilitado y retención de 30 días. Grafana tiene dashboards provisionados automáticamente.
 
@@ -63,8 +63,8 @@ En teacher siempre activas; en dev requieren perfil `apps`.
 | `spring-boot`   | postgres (healthy), redis (healthy) | `SPRING_*`, `APP_*`; monta docker.sock para `LoadTestRunnerService` |
 | `ms-discord`    | redis (healthy)                     | `SERVICE_NAME`, `REDIS_HOST/PORT`, `SPRING_BASE_URL`                |
 | `ms-email`      | redis (healthy)                     | ídem                                                                |
-| `ms-cloudinary` | —                                   | sin dependencia de Redis                                            |
-| `ms-playwright` | —                                   | sin dependencia de Redis                                            |
+| `ms-cloudinary` |:                                   | sin dependencia de Redis                                            |
+| `ms-playwright` |:                                   | sin dependencia de Redis                                            |
 | `angular`       | spring-boot (healthy)               | nginx SPA                                                           |
 
 Healthcheck de `spring-boot`: `GET /actuator/health`.

@@ -6,7 +6,7 @@ tags: [proyecto, stack]
 
 # Stack tecnológico
 
-## Backend — Spring Boot
+## Backend: Spring Boot
 
 | Tecnología                                | Versión        | Rol                                           |
 | ----------------------------------------- | -------------- | --------------------------------------------- |
@@ -45,7 +45,7 @@ tags: [proyecto, stack]
 | Micrometer + Prometheus      | (ktor-managed) | Métricas por microservicio                          |
 | Logstash Logback Encoder     | (ktor-managed) | Logs JSON                                           |
 
-## Frontend — Angular
+## Frontend: Angular
 
 | Tecnología                | Versión           | Rol                                                                         |
 | ------------------------- | ----------------- | --------------------------------------------------------------------------- |
@@ -80,8 +80,8 @@ tags: [proyecto, stack]
 | redis-exporter     | latest              | Métricas de Redis                                              |
 | Jenkins            | (custom Dockerfile) | CI/CD: build, push y deploy de los tres repos                  |
 | Docker Registry v2 | (dev only)          | Registro local de imágenes en el LXC                           |
-| Docker Hub         | —                   | Registro de imágenes para evaluadores (`diegokoes/parallax-*`) |
-| Proxmox VE         | —                   | Hipervisor del servidor físico                                 |
-| LXC                | —                   | Contenedor Linux donde corre toda la infraestructura           |
+| Docker Hub         |:                   | Registro de imágenes para evaluadores (`diegokoes/parallax-*`) |
+| Proxmox VE         |:                   | Hipervisor del servidor físico                                 |
+| LXC                |:                   | Contenedor Linux donde corre toda la infraestructura           |
 
 ## Fuentes

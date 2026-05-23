@@ -11,9 +11,9 @@ tags: [infra, docker, devops, despliegue]
 | Herramienta                       | Versión | Para qué               |
 | --------------------------------- | ------- | ---------------------- |
 | Docker + Docker Compose           | v2      | Infraestructura en LXC |
-| JDK 21                            | —       | Spring local           |
-| Node 22 + npm 11                  | —       | Angular local          |
-| git-crypt + clave GPG o simétrica | —       | Desencriptar secrets   |
+| JDK 21                            |:       | Spring local           |
+| Node 22 + npm 11                  |:       | Angular local          |
+| git-crypt + clave GPG o simétrica |:       | Desencriptar secrets   |
 
 ## Configuración de secrets (una vez por máquina)
 
@@ -78,13 +78,13 @@ npm start  # proxy.conf.js con NG_API_URL unset → localhost:8080 por defecto
 
 **En LXC:** `docker compose up -d` (sin `COMPOSE_PROFILES`, solo infra)
 
-**Portátil — terminal 1:**
+**Portátil: terminal 1:**
 
 ```bash
 cd parallax-sports-spring && ./mvnw spring-boot:run
 ```
 
-**Portátil — terminal 2:**
+**Portátil: terminal 2:**
 
 ```bash
 cd parallax-sports-angular && npm run start:local

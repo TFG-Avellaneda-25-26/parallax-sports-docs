@@ -1,6 +1,6 @@
 ---
 title: Proyecto
-description: Visión general de Parallax Sports — qué es, arquitectura, stack tecnológico y modelo de dominio.
+description: Visión general de Parallax Sports: qué es, arquitectura, stack tecnológico y modelo de dominio.
 tags:
   - proyecto
   - arquitectura

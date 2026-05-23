@@ -72,7 +72,7 @@ No requiere `application-secrets.conf` (no maneja secretos propios).
 
 Utiliza `Dockerfile.playwright`, separado del `Dockerfile` de los demás servicios.
 
-- **Imagen base:** `mcr.microsoft.com/playwright/java:v1.58.0-noble` — incluye los binarios de Chromium preinstalados.
+- **Imagen base:** `mcr.microsoft.com/playwright/java:v1.58.0-noble`: incluye los binarios de Chromium preinstalados.
 - **Usuario de ejecución:** `pwuser`.
 
 ## Fuentes

@@ -1,6 +1,6 @@
 ---
 title: Autenticación frontend
-description: Estrategia de autenticación del frontend de Parallax Sports — HttpOnly cookies, interceptores HTTP y guards de ruta.
+description: Estrategia de autenticación del frontend de Parallax Sports: HttpOnly cookies, interceptores HTTP y guards de ruta.
 tags:
   - frontend
   - autenticacion
@@ -19,7 +19,7 @@ Spring Boot emite dos cookies al autenticar al usuario:
 | `access_token`  | HttpOnly, SameSite=Lax, Secure |
 | `refresh_token` | HttpOnly, SameSite=Lax, Secure |
 
-Angular **nunca accede a los tokens directamente** — son invisibles para JavaScript. El browser los adjunta automáticamente a cada petición al mismo origen.
+Angular **nunca accede a los tokens directamente**: son invisibles para JavaScript. El browser los adjunta automáticamente a cada petición al mismo origen.
 
 ---
 
@@ -102,7 +102,7 @@ Ver [[frontend/rutas-paginas|Rutas y páginas]] para el árbol de rutas completo
 ### `verifiedEmailGuard`
 
 - Se ejecuta después de `authGuard` (el usuario ya está cargado).
-- Lee `UserStore.isVerified()` — refleja `user.emailVerified`.
+- Lee `UserStore.isVerified()`: refleja `user.emailVerified`.
 - Si `false`: bloquea el acceso a `/settings` hasta que el usuario verifique su email.
 
 ## Fuentes

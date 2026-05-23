@@ -30,8 +30,8 @@ Los errores de validación (`400`) añaden el campo adicional:
 
 **Implementación:**
 
-- `ProblemDetailResponseAdvice` — `@RestControllerAdvice` que convierte excepciones a `ProblemDetail`.
-- `GlobalExceptionHandler` — captura excepciones de dominio y del sistema.
+- `ProblemDetailResponseAdvice`: `@RestControllerAdvice` que convierte excepciones a `ProblemDetail`.
+- `GlobalExceptionHandler`: captura excepciones de dominio y del sistema.
 
 ---
 
@@ -52,9 +52,9 @@ Los errores de validación (`400`) añaden el campo adicional:
 
 ## Handlers de seguridad
 
-- `RestAuthenticationEntryPoint` — invocado por Spring Security cuando la petición llega sin autenticación válida; devuelve `401` en formato Problem Details.
-- `RestAccessDeniedHandler` — invocado cuando un usuario autenticado no tiene permisos suficientes; devuelve `403`.
-- `SecurityProblemResponseWriter` — utilidad compartida entre los dos handlers anteriores para serializar la respuesta Problem Details en el contexto de los filtros de seguridad.
+- `RestAuthenticationEntryPoint`: invocado por Spring Security cuando la petición llega sin autenticación válida; devuelve `401` en formato Problem Details.
+- `RestAccessDeniedHandler`: invocado cuando un usuario autenticado no tiene permisos suficientes; devuelve `403`.
+- `SecurityProblemResponseWriter`: utilidad compartida entre los dos handlers anteriores para serializar la respuesta Problem Details en el contexto de los filtros de seguridad.
 
 ---
 

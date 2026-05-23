@@ -22,10 +22,10 @@ Disparada por `EventsIngestedEvent`, un Spring application event que se publica 
    - `UserSportFollow` (seguimientos individuales de competición/participante).
    - `UserSportSettings.follow_all=true` (suscripción a todo el deporte).
 2. Por cada par: calcula `send_at_utc = event.start_time_utc - lead_time_minutes`.
-3. Hace upsert de `UserEventAlert` usando `idempotency_key` como clave de deduplicación — las re-ejecuciones del sync son seguras.
+3. Hace upsert de `UserEventAlert` usando `idempotency_key` como clave de deduplicación: las re-ejecuciones del sync son seguras.
 4. Estado inicial:
-   - `scheduled` — alerta lista para despachar.
-   - `waiting_artifact` — si `artifact_required=true` y aún no existe `AlertArtifact`.
+   - `scheduled`: alerta lista para despachar.
+   - `waiting_artifact`: si `artifact_required=true` y aún no existe `AlertArtifact`.
 
 ---
 
@@ -99,8 +99,8 @@ stateDiagram-v2
 
 Los workers Ktor informan el resultado via HTTP:
 
-- `POST /api/internal/alerts/{alertId}/status` — worker reporta `processing`, `sent` o `failed`.
-- `POST /api/internal/alerts/{alertId}/artifact` — worker sube la URL del artefacto generado.
+- `POST /api/internal/alerts/{alertId}/status`: worker reporta `processing`, `sent` o `failed`.
+- `POST /api/internal/alerts/{alertId}/artifact`: worker sube la URL del artefacto generado.
 
 **Callback de artefacto:**
 

@@ -11,7 +11,7 @@ Pasos para levantar Parallax Sports completo desde Docker Hub, sin necesidad de 
 ## Prerequisitos
 
 - Docker Engine >= 24
-- Docker Compose v2 (`docker compose version` — sin guión)
+- Docker Compose v2 (`docker compose version`: sin guión)
 - ~4 GB RAM libre, ~10 GB disco libre
 - No se necesita cuenta de Docker Hub (imágenes públicas bajo `diegokoes/`)
 
@@ -67,10 +67,10 @@ Todos los servicios deben mostrar `healthy` o `running`.
 | Servicio      | URL                               | Credenciales                              |
 | ------------- | --------------------------------- | ----------------------------------------- |
 | SPA (Angular) | http://TU_IP:80                   | Registro en la propia app                 |
-| API (Spring)  | http://TU_IP:8080/swagger-ui.html | —                                         |
+| API (Spring)  | http://TU_IP:8080/swagger-ui.html | :                                         |
 | Grafana       | http://TU_IP:3000                 | admin / (GRAFANA_ADMIN_PASSWORD del .env) |
-| Prometheus    | http://TU_IP:9090                 | —                                         |
-| Alertmanager  | http://TU_IP:9093                 | —                                         |
+| Prometheus    | http://TU_IP:9090                 | :                                         |
+| Alertmanager  | http://TU_IP:9093                 | :                                         |
 
 ## Load tests (opcional)
 
@@ -104,33 +104,37 @@ docker compose -f docker-compose.teacher.yml down
 docker compose -f docker-compose.teacher.yml down -v
 ```
 
-## Para el desarrollador — subir imágenes a Docker Hub
+## Para el desarrollador: subir imágenes a Docker Hub
 
-Las imágenes se construyen en Jenkins y se pushean al registry local (`localhost:5000`). Para publicarlas en Docker Hub (necesario antes de la evaluación):
+Jenkins construye y publica las imágenes en el registry local del LXC (`localhost:5000` desde dentro del LXC). Para subirlas a Docker Hub hay que ejecutar los siguientes comandos **desde el propio LXC** (donde está el registry privado):
 
 ```bash
-# Login (una vez)
+# Desde el LXC (ssh root@<ip-del-lxc>)
+
+# Login a Docker Hub — admite autenticación web o con -u <usuario>
 docker login
 
-# Para cada imagen:
-docker tag localhost:5000/parallax-spring:latest diegokoes/parallax-spring:latest
-docker push diegokoes/parallax-spring:latest
+# Etiquetar y subir cada imagen
+docker tag localhost:5000/parallax-spring:latest        diegokoes/parallax-spring:latest
+docker push                                              diegokoes/parallax-spring:latest
 
-docker tag localhost:5000/parallax-angular:latest diegokoes/parallax-angular:latest
-docker push diegokoes/parallax-angular:latest
+docker tag localhost:5000/parallax-angular:latest       diegokoes/parallax-angular:latest
+docker push                                              diegokoes/parallax-angular:latest
 
-docker tag localhost:5000/parallax-ms-discord:latest diegokoes/parallax-ms-discord:latest
-docker push diegokoes/parallax-ms-discord:latest
+docker tag localhost:5000/parallax-ms-discord:latest    diegokoes/parallax-ms-discord:latest
+docker push                                              diegokoes/parallax-ms-discord:latest
 
-docker tag localhost:5000/parallax-ms-email:latest diegokoes/parallax-ms-email:latest
-docker push diegokoes/parallax-ms-email:latest
+docker tag localhost:5000/parallax-ms-email:latest      diegokoes/parallax-ms-email:latest
+docker push                                              diegokoes/parallax-ms-email:latest
 
 docker tag localhost:5000/parallax-ms-cloudinary:latest diegokoes/parallax-ms-cloudinary:latest
-docker push diegokoes/parallax-ms-cloudinary:latest
+docker push                                              diegokoes/parallax-ms-cloudinary:latest
 
 docker tag localhost:5000/parallax-ms-playwright:latest diegokoes/parallax-ms-playwright:latest
-docker push diegokoes/parallax-ms-playwright:latest
+docker push                                              diegokoes/parallax-ms-playwright:latest
 ```
+
+`localhost:5000` es el registry Docker privado que corre como contenedor en el LXC. Los profesores descargan desde Docker Hub y no necesitan acceso al LXC ni al registry privado.
 
 Ver también [[ci-cd|CI/CD con Jenkins]] para el flujo de build completo.
 

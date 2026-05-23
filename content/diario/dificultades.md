@@ -6,7 +6,7 @@ tags: [diario, dificultades, debugging]
 
 # Dificultades
 
-## NgRx Signals — Colisión de nombre estado/método (NG0600)
+## NgRx Signals: Colisión de nombre estado/método (NG0600)
 
 **Problema:** En un `signalStore` de `@ngrx/signals`, si una propiedad de `withState` y un método de `withMethods` tienen el mismo nombre, el método silencia la señal sin error en tiempo de compilación.
 

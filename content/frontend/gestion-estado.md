@@ -1,6 +1,6 @@
 ---
 title: Gestión de estado con NgRx Signals
-description: Stores NgRx Signals del frontend de Parallax Sports — estado, computed signals y métodos de cada store.
+description: Stores NgRx Signals del frontend de Parallax Sports: estado, computed signals y métodos de cada store.
 tags:
   - frontend
   - estado
@@ -14,7 +14,7 @@ Todos los stores usan la API `signalStore` de `@ngrx/signals`. No existe NgRx St
 
 ## UserStore
 
-**Ubicación:** `entities/user/store` — `providedIn: root`
+**Ubicación:** `entities/user/store`: `providedIn: root`
 
 | Estado      | Tipo           |
 | ----------- | -------------- |
@@ -29,7 +29,7 @@ Todos los stores usan la API `signalStore` de `@ngrx/signals`. No existe NgRx St
 
 | Método                 | Acción                                                         |
 | ---------------------- | -------------------------------------------------------------- |
-| `loadUser()`           | GET `/api/users/me` — carga el usuario autenticado             |
+| `loadUser()`           | GET `/api/users/me`: carga el usuario autenticado             |
 | `markEmailVerified()`  | Actualiza `user.emailVerified` en local sin petición adicional |
 | `updateEmail()`        | PATCH `/api/users/email`                                       |
 | `updatePassword()`     | PATCH `/api/users/password`                                    |
@@ -43,7 +43,7 @@ Todos los stores usan la API `signalStore` de `@ngrx/signals`. No existe NgRx St
 
 ## AuthStore
 
-**Ubicación:** `features/auth/store` — provisto a nivel de componente en `AuthPage`
+**Ubicación:** `features/auth/store`: provisto a nivel de componente en `AuthPage`
 
 | Estado | Tipo                    |
 | ------ | ----------------------- |
@@ -55,8 +55,8 @@ Todos los stores usan la API `signalStore` de `@ngrx/signals`. No existe NgRx St
 
 **Propiedades y métodos:**
 
-- `authForm` — signal form con campos que varían según `mode` (ver [[frontend/formularios-signal|Formularios Signal]])
-- `toggleMode()` — alterna entre login y register
+- `authForm`: signal form con campos que varían según `mode` (ver [[frontend/formularios-signal|Formularios Signal]])
+- `toggleMode()`: alterna entre login y register
 
 Al completar la autenticación con éxito: llama a `UserStore.loadUser()` y navega a `/dashboard`.
 
@@ -64,7 +64,7 @@ Al completar la autenticación con éxito: llama a `UserStore.loadUser()` y nave
 
 ## EventStore
 
-**Ubicación:** `features/event/store` — `providedIn: root`
+**Ubicación:** `features/event/store`: `providedIn: root`
 
 | Estado       | Tipo             |
 | ------------ | ---------------- |
@@ -78,14 +78,14 @@ Al completar la autenticación con éxito: llama a `UserStore.loadUser()` y nave
 | Método                | Acción                                                                          |
 | --------------------- | ------------------------------------------------------------------------------- |
 | `loadInitialEvents()` | GET `/api/events` con ventana de 3 meses desde hoy; llamado por `eventResolver` |
-| `loadMore()`          | GET `/api/events?cursor={nextCursor}` — paginación cursor-based                 |
+| `loadMore()`          | GET `/api/events?cursor={nextCursor}`: paginación cursor-based                 |
 | `clearEvents()`       | Vacía el estado local                                                           |
 
 ---
 
 ## DashboardViewStore
 
-**Ubicación:** `features/dashboard/store` — `providedIn: root`
+**Ubicación:** `features/dashboard/store`: `providedIn: root`
 
 | Estado | Tipo                 |
 | ------ | -------------------- |
@@ -97,7 +97,7 @@ Al completar la autenticación con éxito: llama a `UserStore.loadUser()` y nave
 
 ## EventFilterStore
 
-**Ubicación:** `features/dashboard/store` — `providedIn: root`
+**Ubicación:** `features/dashboard/store`: `providedIn: root`
 
 Estado: 8 señales `Set<string>`:
 
@@ -114,8 +114,8 @@ Estado: 8 señales `Set<string>`:
 
 **Métodos clave:**
 
-- `eventPasses(event)` — filtro jerárquico: deporte → competición → tipo de evento → participante
-- `buildTree(events)` — deriva `SportNode[]` para `FilterTreeComponent`
+- `eventPasses(event)`: filtro jerárquico: deporte → competición → tipo de evento → participante
+- `buildTree(events)`: deriva `SportNode[]` para `FilterTreeComponent`
 
 Las claves compuestas usan el formato `sportKey::competitionName::id`.
 
@@ -123,7 +123,7 @@ Las claves compuestas usan el formato `sportKey::competitionName::id`.
 
 ## FilterDrawerStore
 
-**Ubicación:** `features/dashboard/store` — `providedIn: root`
+**Ubicación:** `features/dashboard/store`: `providedIn: root`
 
 | Estado   | Tipo      |
 | -------- | --------- |
@@ -137,7 +137,7 @@ Las claves compuestas usan el formato `sportKey::competitionName::id`.
 
 ## ThemeStore
 
-**Ubicación:** `shared/stores` — `providedIn: root`
+**Ubicación:** `shared/stores`: `providedIn: root`
 
 | Estado  | Tipo                |
 | ------- | ------------------- |
@@ -158,7 +158,7 @@ Las claves compuestas usan el formato `sportKey::competitionName::id`.
 
 ## ErrorStore
 
-**Ubicación:** `shared/stores` — `providedIn: root`
+**Ubicación:** `shared/stores`: `providedIn: root`
 
 | Estado  | Tipo                     |
 | ------- | ------------------------ |
@@ -172,7 +172,7 @@ Las claves compuestas usan el formato `sportKey::competitionName::id`.
 
 ## SettingsNavStore
 
-**Ubicación:** `shared/stores` — provisto a nivel de componente en `SettingsPage`
+**Ubicación:** `shared/stores`: provisto a nivel de componente en `SettingsPage`
 
 | Estado     | Tipo         |
 | ---------- | ------------ |

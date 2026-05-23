@@ -1,6 +1,6 @@
 ---
 title: Arquitectura Feature-Sliced Design
-description: Metodología Feature-Sliced Design aplicada a Angular 21 en Parallax Sports — capas, regla de importación, Sheriff y path aliases.
+description: Metodología Feature-Sliced Design aplicada a Angular 21 en Parallax Sports: capas, regla de importación, Sheriff y path aliases.
 tags:
   - frontend
   - arquitectura
@@ -42,8 +42,8 @@ Cada página puede proveer stores de alcance local y componer widgets y features
 
 Bloques de UI compuestos reutilizables que no encajan en una sola feature:
 
-- `header/` — cabecera global de la aplicación
-- `settings-nav/` — navegación lateral de ajustes
+- `header/`: cabecera global de la aplicación
+- `settings-nav/`: navegación lateral de ajustes
 
 Los widgets pueden usar features y entities, pero no pueden depender de pages.
 
@@ -81,12 +81,12 @@ Las entities solo pueden importar de shared.
 
 Utilidades y primitivas sin dependencias de negocio:
 
-- `api/` — ApiClient wrapper
-- `interceptors/` — authInterceptor, errorInterceptor
-- `stores/` — ThemeStore, ErrorStore, SettingsNavStore
-- `lib/` — GSAP, pipes, helpers
-- `models/` — ProblemDetails, settings-nav.model.ts
-- `ui/` — componentes UI genéricos y estilos globales
+- `api/`: ApiClient wrapper
+- `interceptors/`: authInterceptor, errorInterceptor
+- `stores/`: ThemeStore, ErrorStore, SettingsNavStore
+- `lib/`: GSAP, pipes, helpers
+- `models/`: ProblemDetails, settings-nav.model.ts
+- `ui/`: componentes UI genéricos y estilos globales
 
 La capa `shared` no puede importar de ninguna otra capa.
 

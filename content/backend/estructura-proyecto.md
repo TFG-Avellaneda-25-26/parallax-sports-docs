@@ -40,9 +40,9 @@ Clases clave: `AdminUserController`, `AdminEventInjectionController`.
 
 Registro de auditoría de operaciones privilegiadas mediante AOP.
 
-- `@Audited` — anotación que marca métodos a auditar.
-- `AuditedAspect` — aspecto `@Around` que intercepta los métodos anotados y persiste `AuditLog`.
-- `AuditService` — escribe registros con actor, IP, traceId y detalle JSON.
+- `@Audited`: anotación que marca métodos a auditar.
+- `AuditedAspect`: aspecto `@Around` que intercepta los métodos anotados y persiste `AuditLog`.
+- `AuditService`: escribe registros con actor, IP, traceId y detalle JSON.
 
 ---
 
@@ -60,9 +60,9 @@ Ver [[autenticacion|Autenticación]] para el detalle completo.
 
 API para bots externos (Discord bot, etc.) autenticados con API key.
 
-- `BotCommandController` — `GET /api/bot/check-permission` comprueba si un usuario de Discord tiene acceso a una operación.
-- `BotApiKeyFilter` — valida la API key en cabecera antes del filtro JWT.
-- `BotPermissionCacheService` — caché Redis de permisos para reducir consultas a BD.
+- `BotCommandController`: `GET /api/bot/check-permission` comprueba si un usuario de Discord tiene acceso a una operación.
+- `BotApiKeyFilter`: valida la API key en cabecera antes del filtro JWT.
+- `BotPermissionCacheService`: caché Redis de permisos para reducir consultas a BD.
 
 ---
 
@@ -88,10 +88,10 @@ También contiene `@RequiresVerifiedEmail` + `VerifiedEmailAspect` que bloquea o
 
 Clientes HTTP y jobs de sincronización diaria de datos deportivos externos.
 
-- `basketball/` — cliente BallDontLie (NBA/WNBA).
-- `formula1/` — cliente OpenF1.
-- `pandascore/` — cliente PandaScore (esports).
-- `sync/` — `ExternalApiDailySyncJob` (interfaz), `ExternalApiDailyScheduler`, `SyncWriteHelper`.
+- `basketball/`: cliente BallDontLie (NBA/WNBA).
+- `formula1/`: cliente OpenF1.
+- `pandascore/`: cliente PandaScore (esports).
+- `sync/`: `ExternalApiDailySyncJob` (interfaz), `ExternalApiDailyScheduler`, `SyncWriteHelper`.
 
 Ver [[sincronizacion-datos|Sincronización de datos]].
 
@@ -109,8 +109,8 @@ Modelos: `UserSportFollow`, `UserSportNotificationChannel`, `UserFollowNotificat
 
 Ejecución y monitoreo de pruebas de carga desde la interfaz de administración.
 
-- `LoadTestController` — endpoint SSE que emite logs en tiempo real.
-- `LoadTestRunnerService` — lanza contenedores k6 con docker-java y captura su salida.
+- `LoadTestController`: endpoint SSE que emite logs en tiempo real.
+- `LoadTestRunnerService`: lanza contenedores k6 con docker-java y captura su salida.
 
 ---
 
@@ -135,7 +135,7 @@ Ver [[sistema-alertas|Sistema de alertas]].
 
 Controllers públicos de datos deportivos y repositorios de entidades del dominio.
 
-- `BasketballController`, `Formula1Controller`, `PandaScorePublicController` — endpoints de consulta pública.
+- `BasketballController`, `Formula1Controller`, `PandaScorePublicController`: endpoints de consulta pública.
 - Subpaquetes `basketball/`, `formula1/` con entidades específicas de deporte.
 
 ---

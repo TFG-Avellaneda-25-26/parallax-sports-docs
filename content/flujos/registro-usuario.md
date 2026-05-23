@@ -22,7 +22,7 @@ sequenceDiagram
         Note over U,Email: Flujo de registro
         U->>SPA: Rellena formulario /auth (modo register)
         SPA->>SPA: Validación local (email, password, confirm)
-        SPA->>Spring: GET /api/users/email — check unicidad async
+        SPA->>Spring: GET /api/users/email: check unicidad async
         Spring-->>SPA: 200 OK / 409 Conflict
 
         SPA->>Spring: POST /api/auth/register {email, password, displayName}

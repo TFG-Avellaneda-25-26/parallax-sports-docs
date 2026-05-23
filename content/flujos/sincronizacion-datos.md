@@ -26,7 +26,7 @@ Tras el commit de cada job se publica un `EventsIngestedEvent` mediante `@Transa
 
 ## Proveedores
 
-### Formula 1 — OpenF1
+### Formula 1: OpenF1
 
 ```
 GET https://api.openf1.org/v1/meetings?year={year}
@@ -38,7 +38,7 @@ GET https://api.openf1.org/v1/sessions?year={year}
     type   = race | qualifying | sprint | practice
 ```
 
-### Baloncesto — BallDontLie
+### Baloncesto: BallDontLie
 
 ```
 # NBA
@@ -54,7 +54,7 @@ GET https://api.balldontlie.io/v1/wnba/games?seasons[]={year}
   → mismo proceso para WNBA
 ```
 
-### Esports — PandaScore
+### Esports: PandaScore
 
 ```
 GET https://api.pandascore.co/{game}/matches
@@ -65,7 +65,7 @@ GET https://api.pandascore.co/{game}/matches
 
 Juegos soportados: `lol`, `valorant`, `dota2`, `csgo`, `overwatch`
 
-## Deduplicación — SyncWriteHelper
+## Deduplicación: SyncWriteHelper
 
 Todos los jobs usan `SyncWriteHelper` para gestionar los upserts.
 

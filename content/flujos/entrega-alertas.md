@@ -36,30 +36,30 @@ sequenceDiagram
     participant Prov as Discord / Gmail
 
     rect rgb(220,235,255)
-        Note over Sched,DB: Fase 1 — Sincronización diaria (00:30 UTC)
+        Note over Sched,DB: Fase 1: Sincronización diaria (00:30 UTC)
         Sched->>DB: Upsert events (OpenF1 / BallDontLie / PandaScore)
         DB-->>Sched: OK
         Sched->>Spring: EventsIngestedEvent (after-commit)
     end
 
     rect rgb(255,240,220)
-        Note over Spring,DB: Fase 2 — Generación de alertas
+        Note over Spring,DB: Fase 2: Generación de alertas
         Spring->>DB: Resolver pares (usuario, canal) por follow settings
         Spring->>DB: Upsert user_event_alerts (send_at_utc, idempotency_key)
     end
 
     rect rgb(220,255,230)
-        Note over Spring,Redis: Fase 3 — Dispatch (cada minuto)
-        Spring->>DB: SELECT FOR UPDATE SKIP LOCKED — alertas vencidas
+        Note over Spring,Redis: Fase 3: Dispatch (cada minuto)
+        Spring->>DB: SELECT FOR UPDATE SKIP LOCKED: alertas vencidas
         alt artifact_required y sin artefacto
-            Spring-->>Spring: Skip — esperar artefacto
+            Spring-->>Spring: Skip: esperar artefacto
         else alerta enrutable
             Spring->>Redis: XADD alerts.{channel}.v1 * ...campos...
         end
     end
 
     rect rgb(255,255,215)
-        Note over Ktor,Prov: Fase 4 — Procesado Ktor
+        Note over Ktor,Prov: Fase 4: Procesado Ktor
         Ktor->>Redis: XREADGROUP BLOCK 5000 COUNT 3
         alt artifact_required = true
             Ktor->>PW: POST /api/internal/screenshot
@@ -73,13 +73,13 @@ sequenceDiagram
     end
 
     rect rgb(245,225,255)
-        Note over Spring,DB: Fase 5 — Callback
+        Note over Spring,DB: Fase 5: Callback
         Spring->>DB: Crea AlertDeliveryAttempt
         Spring->>DB: Actualiza UserEventAlert.status
     end
 ```
 
-## Fase 1 — Sincronización diaria
+## Fase 1: Sincronización diaria
 
 `ExternalApiDailyScheduler` se ejecuta a las **00:30 UTC** mediante cron `0 30 0 * * *`.
 
@@ -93,7 +93,7 @@ Tras el commit de cada job se publica `EventsIngestedEvent` vía `@Transactional
 
 Ver detalle en [[sincronizacion-datos|Sincronización de datos externos]].
 
-## Fase 2 — Generación de alertas
+## Fase 2: Generación de alertas
 
 `UserEventAlertGenerationService` escucha `EventsIngestedEvent`.
 
@@ -103,26 +103,26 @@ Para cada evento ingestado:
 2. Calcula `send_at_utc = event.start_time_utc - lead_time_minutes`.
 3. Hace upsert en `user_event_alerts` usando `idempotency_key` para evitar duplicados.
 
-## Fase 3 — Dispatch scheduler
+## Fase 3: Dispatch scheduler
 
 `UserEventAlertDispatchScheduler` se ejecuta **cada minuto**.
 
-1. `SELECT FOR UPDATE SKIP LOCKED` — obtiene alertas cuyo `send_at_utc ≤ now()`.
+1. `SELECT FOR UPDATE SKIP LOCKED`: obtiene alertas cuyo `send_at_utc ≤ now()`.
 2. Si `artifact_required = true` y no hay artefacto disponible → **skip** (reintentará en el siguiente ciclo).
 3. Para Discord: `DiscordRoutingResolver` calcula el destino (DM vs canal de guild). Si no es enrutable → `failed_permanent`.
 4. Publica en Redis Stream: `XADD alerts.{channel}.v1 * ...campos...`
 
-## Fase 4 — Procesado por Ktor Worker
+## Fase 4: Procesado por Ktor Worker
 
 `RedisStreamConsumer` en el módulo Ktor:
 
-1. `XREADGROUP BLOCK 5000 COUNT 3` — lee hasta 3 mensajes del grupo de consumo.
+1. `XREADGROUP BLOCK 5000 COUNT 3`: lee hasta 3 mensajes del grupo de consumo.
 2. Si `artifactRequired = true` → llama a `PlaywrightClient`. Ver [[pipeline-artefactos|pipeline de artefactos]].
-3. `sendToProvider(message, artifactUrl)` — envía al proveedor final.
-4. `XACK + XDEL` — confirma el mensaje **antes** del callback a Spring.
+3. `sendToProvider(message, artifactUrl)`: envía al proveedor final.
+4. `XACK + XDEL`: confirma el mensaje **antes** del callback a Spring.
 5. `POST /api/internal/alerts/{id}/status` con `sent` o `failed_*`.
 
-## Fase 5 — Callback a Spring
+## Fase 5: Callback a Spring
 
 `AlertCallbackService`:
 

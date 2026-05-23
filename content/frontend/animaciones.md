@@ -1,6 +1,6 @@
 ---
 title: Animaciones GSAP
-description: Plugins GSAP registrados y animaciones por componente en Parallax Sports — MorphSVG, ScrollTrigger, DrawSVG, TextPlugin, Flip.
+description: Plugins GSAP registrados y animaciones por componente en Parallax Sports: MorphSVG, ScrollTrigger, DrawSVG, TextPlugin, Flip.
 tags:
   - frontend
   - animaciones
@@ -33,7 +33,7 @@ gsap.registerPlugin(
 
 **Ubicación:** `pages/landing/`
 
-### MorphSVG — ciclo de logos deportivos
+### MorphSVG: ciclo de logos deportivos
 
 - 7 paths SVG representan: Basketball, Dota2, Valorant, F1, StarCraft, CS, LoL.
 - `MorphSVGPlugin` anima continuamente de un path al siguiente en bucle (`repeat: -1`).
@@ -41,7 +41,7 @@ gsap.registerPlugin(
 
 Esto evita que GSAP modifique el DOM durante el snapshot que toma el browser para la transición de tema.
 
-### Parallax — ScrollTrigger
+### Parallax: ScrollTrigger
 
 - El hero hace parallax sobre el scroll usando `ScrollTrigger` con `scrub: true`.
 
@@ -88,11 +88,11 @@ gsap.from(cells, {
 
 **Ubicación:** `features/theme-switch/`
 
-### MorphSVG — sol ↔ luna
+### MorphSVG: sol ↔ luna
 
 `MorphSVGPlugin` anima el icono SVG entre la forma de sol (tema claro) y la forma de luna (tema oscuro) al cambiar el tema.
 
-### View Transitions API — ripple
+### View Transitions API: ripple
 
 La animación de ripple se gestiona conjuntamente con la View Transitions API. Ver [[frontend/view-transitions|View Transitions API]] para el flujo completo.
 
@@ -102,7 +102,7 @@ La animación de ripple se gestiona conjuntamente con la View Transitions API. V
 
 **Ubicación:** `pages/dashboard/`
 
-### Infinite scroll — ScrollTrigger
+### Infinite scroll: ScrollTrigger
 
 Un elemento sentinel situado al final de la lista de eventos activa `EventStore.loadMore()` cuando entra en el viewport:
 

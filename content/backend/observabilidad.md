@@ -18,21 +18,21 @@ Métricas del pipeline de alertas de eventos.
 
 | Métrica                   | Tipo                                    | Etiquetas               |
 | ------------------------- | --------------------------------------- | ----------------------- |
-| `alerts.pipeline.latency` | Histogram (percentiles 0.5, 0.95, 0.99) | —                       |
+| `alerts.pipeline.latency` | Histogram (percentiles 0.5, 0.95, 0.99) |:                       |
 | `alerts.generated.total`  | Counter                                 | `channel`               |
 | `alerts.dispatched.total` | Counter                                 | `channel`               |
 | `alerts.sent.total`       | Counter                                 | `channel`               |
 | `alerts.failed.total`     | Counter                                 | `channel`, `error_code` |
-| `alerts.retried.total`    | Counter                                 | —                       |
+| `alerts.retried.total`    | Counter                                 |:                       |
 
 ### AuthMetrics
 
 | Métrica                                   | Tipo    | Etiquetas                                   |
 | ----------------------------------------- | ------- | ------------------------------------------- |
-| `auth.registrations.total`                | Counter | —                                           |
+| `auth.registrations.total`                | Counter |:                                           |
 | `auth.logins.total`                       | Counter | `provider` (`local` / `google` / `discord`) |
-| `auth.token.refresh.total`                | Counter | —                                           |
-| `auth.token.refresh.reuse_detected.total` | Counter | —                                           |
+| `auth.token.refresh.total`                | Counter |:                                           |
+| `auth.token.refresh.reuse_detected.total` | Counter |:                                           |
 
 ### ExternalApiMetrics
 
@@ -78,9 +78,9 @@ El `traceId` correlaciona logs entre Spring Boot y los workers Ktor: ambos propa
 
 ## Auditoría
 
-La tabla `AuditLog` registra todas las operaciones privilegiadas. Ver [[manejo-excepciones|Manejo de excepciones — Auditoría AOP]].
+La tabla `AuditLog` registra todas las operaciones privilegiadas. Ver [[manejo-excepciones|Manejo de excepciones: Auditoría AOP]].
 
-Endpoint: `GET /api/admin/audit` — paginado, filtrable por `actor`, `action`, `entity`, `dateFrom`, `dateTo`.
+Endpoint: `GET /api/admin/audit`: paginado, filtrable por `actor`, `action`, `entity`, `dateFrom`, `dateTo`.
 
 ---
 

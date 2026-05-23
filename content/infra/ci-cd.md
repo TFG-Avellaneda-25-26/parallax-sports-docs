@@ -11,8 +11,8 @@ tags: [infra, ci-cd, jenkins, docker]
 - Corre en Docker en el LXC, con `/var/run/docker.sock` y `/opt/stack` montados
 - Imagen personalizada (`jenkins/Dockerfile`) con git-crypt, Docker CLI y herramientas necesarias
 - Accesible en el puerto **8090**
-- Credencial `gitcrypt-ktor` — clave simétrica para el repo de Ktor
-- Credencial `062f57c8-aae6-4a78-90ed-b159c33a51d7` — clave simétrica para el repo de Spring
+- Credencial `gitcrypt-ktor`: clave simétrica para el repo de Ktor
+- Credencial `062f57c8-aae6-4a78-90ed-b159c33a51d7`: clave simétrica para el repo de Spring
 
 ## Pipeline Spring (`parallax-sports-spring/Jenkinsfile`)
 
@@ -54,7 +54,7 @@ Variables de entorno: `SERVICES = 'ms-discord ms-email ms-cloudinary'`, `PLAYWRI
 
 **Post:** siempre `find . -name "application-secrets.conf" ... -delete` + `find . -name "shared-secrets.conf" ... -delete` + `cleanWs()`
 
-**Estrategia de secretos:** igual que Spring — los secretos se embeben en la distribución `installDist` antes del `docker build`. El `Dockerfile` compartido usa `--build-arg SERVICE=ms-discord`. `ms-playwright` usa `Dockerfile.playwright` separado.
+**Estrategia de secretos:** igual que Spring: los secretos se embeben en la distribución `installDist` antes del `docker build`. El `Dockerfile` compartido usa `--build-arg SERVICE=ms-discord`. `ms-playwright` usa `Dockerfile.playwright` separado.
 
 ## Registry local vs Docker Hub
 

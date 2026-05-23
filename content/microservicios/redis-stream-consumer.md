@@ -64,11 +64,11 @@ Establece `isRunning = false`. El loop termina al finalizar la iteración en cur
 | Métrica                             | Tipo    | Etiquetas              |
 | ----------------------------------- | ------- | ---------------------- |
 | `stream.messages.consumed.total`    | Counter | stream, channel        |
-| `stream.message.processing.seconds` | Timer   | —                      |
-| `stream.message.retries.total`      | Counter | —                      |
-| `stream.message.dropped.total`      | Counter | — (fallos permanentes) |
+| `stream.message.processing.seconds` | Timer   |:                      |
+| `stream.message.retries.total`      | Counter |:                      |
+| `stream.message.dropped.total`      | Counter |: (fallos permanentes) |
 | `provider.send.seconds`             | Timer   | channel                |
-| `artifact.fetch.seconds`            | Timer   | —                      |
+| `artifact.fetch.seconds`            | Timer   |:                      |
 | `callback.to.spring.total`          | Counter | status                 |
 
 ## Fuentes

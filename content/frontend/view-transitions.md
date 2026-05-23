@@ -1,5 +1,5 @@
 ---
-title: View Transitions API — Ripple de tema
+title: View Transitions API: Ripple de tema
 description: Implementación del efecto ripple de cambio de tema mediante la View Transitions API y su integración con GSAP en Parallax Sports.
 tags:
   - frontend
@@ -8,7 +8,7 @@ tags:
   - gsap
 ---
 
-# View Transitions API — Ripple de tema
+# View Transitions API: Ripple de tema
 
 El cambio de tema (claro ↔ oscuro) se anima con un efecto de onda expansiva (ripple) que parte del punto exacto donde el usuario hace clic. Se implementa con la View Transitions API del browser, sin librerías adicionales.
 
@@ -69,8 +69,8 @@ La View Transitions API toma snapshots del DOM. Si GSAP está animando SVG en es
 
 | Evento                   | Quién lo despacha                                       | Quién lo escucha                             |
 | ------------------------ | ------------------------------------------------------- | -------------------------------------------- |
-| `theme-transition-start` | `ThemeToggleComponent` (antes de `startViewTransition`) | `LandingPage` — pausa el tween de MorphSVG   |
-| `theme-transition-end`   | `ThemeToggleComponent` (en `.finished.then()`)          | `LandingPage` — reanuda el tween de MorphSVG |
+| `theme-transition-start` | `ThemeToggleComponent` (antes de `startViewTransition`) | `LandingPage`: pausa el tween de MorphSVG   |
+| `theme-transition-end`   | `ThemeToggleComponent` (en `.finished.then()`)          | `LandingPage`: reanuda el tween de MorphSVG |
 
 ---
 

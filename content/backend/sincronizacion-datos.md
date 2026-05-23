@@ -16,7 +16,7 @@ Tras completar cada job, se publica `EventsIngestedEvent` (Spring application ev
 
 ---
 
-## Formula 1 — OpenF1
+## Formula 1: OpenF1
 
 **API base:** `https://api.openf1.org/v1`  
 **Sport key:** `formula1`
@@ -34,11 +34,11 @@ Tras completar cada job, se publica `EventsIngestedEvent` (Spring application ev
 
 **Triggers manuales:**
 
-- `POST /api/admin/formula1/sync/{year}` — sincroniza un año específico.
+- `POST /api/admin/formula1/sync/{year}`: sincroniza un año específico.
 
 ---
 
-## Basketball — BallDontLie
+## Basketball: BallDontLie
 
 **API base:** `https://api.balldontlie.io`  
 **Autenticación:** API key en cabecera.
@@ -56,11 +56,11 @@ Tras completar cada job, se publica `EventsIngestedEvent` (Spring application ev
 
 **Triggers manuales:**
 
-- `POST /api/admin/basketball/sync` — sincronización completa de baloncesto.
+- `POST /api/admin/basketball/sync`: sincronización completa de baloncesto.
 
 ---
 
-## Esports — PandaScore
+## Esports: PandaScore
 
 **API base:** `https://api.pandascore.co`  
 **Autenticación:** API key en cabecera.
@@ -78,7 +78,7 @@ Tras completar cada job, se publica `EventsIngestedEvent` (Spring application ev
 
 **Triggers manuales:**
 
-- `POST /api/admin/pandascore/sync/{game}` — sincroniza un esport específico (`lol`, `valorant`, `dota2`, `csgo`, `overwatch`).
+- `POST /api/admin/pandascore/sync/{game}`: sincroniza un esport específico (`lol`, `valorant`, `dota2`, `csgo`, `overwatch`).
 
 ---
 

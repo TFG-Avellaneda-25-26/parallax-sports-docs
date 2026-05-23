@@ -1,6 +1,6 @@
 ---
 title: Formularios Signal
-description: Formularios reactivos basados en señales con @angular/forms/signals en Parallax Sports — AuthForm, Settings forms, OTP dialog.
+description: Formularios reactivos basados en señales con @angular/forms/signals en Parallax Sports: AuthForm, Settings forms, OTP dialog.
 tags:
   - frontend
   - formularios
@@ -13,8 +13,8 @@ Parallax Sports usa la API experimental `@angular/forms/signals` para formulario
 
 ## API base
 
-- `FormRoot<T>` — raíz del formulario; contiene el estado de validez global
-- `FormField<T>` — campo individual; acepta validadores síncronos y asíncronos
+- `FormRoot<T>`: raíz del formulario; contiene el estado de validez global
+- `FormField<T>`: campo individual; acepta validadores síncronos y asíncronos
 - La validación se ejecuta **reactivamente** al cambiar el valor del campo
 - Los errores son señales: se pueden leer en plantilla con `field.errors()`
 
@@ -48,7 +48,7 @@ El formulario vive como propiedad `authForm` dentro de `AuthStore`. Los campos a
 
 ---
 
-## Settings forms — Account
+## Settings forms: Account
 
 **Ubicación:** `features/settings/ui/account/forms/`
 
@@ -60,7 +60,7 @@ El formulario vive como propiedad `authForm` dentro de `AuthStore`. Los campos a
 
 ---
 
-## Settings forms — Preferences
+## Settings forms: Preferences
 
 **Ubicación:** `features/settings/ui/preferences/forms/`
 

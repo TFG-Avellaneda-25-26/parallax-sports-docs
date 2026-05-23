@@ -6,7 +6,7 @@ tags: [backend, api, rest]
 
 # Referencia de la API
 
-## Autenticación — `/api/auth`
+## Autenticación: `/api/auth`
 
 Acceso: **Público**
 
@@ -22,7 +22,7 @@ Acceso: **Público**
 
 ---
 
-## Usuarios — `/api/users`
+## Usuarios: `/api/users`
 
 Acceso: **Autenticado**
 
@@ -37,7 +37,7 @@ Acceso: **Autenticado**
 | DELETE | `/me`                | Borrado de cuenta propia                                   |
 | DELETE | `/identities/{id}`   | Desvincula identidad social por ID                         |
 
-### Configuración de usuario — `/api/users/settings`
+### Configuración de usuario: `/api/users/settings`
 
 | Método | Ruta            | Descripción                                     |
 | ------ | --------------- | ----------------------------------------------- |
@@ -46,7 +46,7 @@ Acceso: **Autenticado**
 | PUT    | `/date-format`  | Actualiza formato de fecha                      |
 | POST   | `/init`         | Inicializa settings con valores por defecto     |
 
-### Canales de notificación — `/api/users/notification-channels`
+### Canales de notificación: `/api/users/notification-channels`
 
 | Método | Ruta                   | Descripción                            |
 | ------ | ---------------------- | -------------------------------------- |
@@ -62,14 +62,14 @@ Acceso: **Público**
 
 | Método | Ruta                            | Parámetros                                          | Descripción            |
 | ------ | ------------------------------- | --------------------------------------------------- | ---------------------- |
-| GET    | `/api/formula1/sessions/{year}` | —                                                   | Sesiones F1 de un año  |
+| GET    | `/api/formula1/sessions/{year}` |:                                                   | Sesiones F1 de un año  |
 | GET    | `/api/basketball/games`         | `startDate`, `endDate`, `league`                    | Partidos de baloncesto |
-| GET    | `/api/basketball/teams`         | —                                                   | Equipos NBA/WNBA       |
+| GET    | `/api/basketball/teams`         |:                                                   | Equipos NBA/WNBA       |
 | GET    | `/api/{game}/matches`           | game: `lol`, `valorant`, `dota2`, `cs`, `overwatch` | Partidos de esports    |
 
 ---
 
-## Admin — Usuarios — `/api/admin/users`
+## Admin: Usuarios: `/api/admin/users`
 
 Acceso: **ADMIN**
 
@@ -83,7 +83,7 @@ Acceso: **ADMIN**
 | PUT    | `/{id}/role`         | Cambia rol del usuario              |
 | DELETE | `/{id}`              | Elimina un usuario                  |
 
-## Admin — Eventos — `/api/admin/events`
+## Admin: Eventos: `/api/admin/events`
 
 Acceso: **ADMIN**
 
@@ -91,7 +91,7 @@ Acceso: **ADMIN**
 | ------ | --------- | ---------------------------------------------------- |
 | POST   | `/inject` | Inyección manual de evento (`EventInjectionRequest`) |
 
-## Admin — Sincronización — `/api/admin`
+## Admin: Sincronización: `/api/admin`
 
 Acceso: **ADMIN**
 
@@ -102,7 +102,7 @@ Acceso: **ADMIN**
 | POST   | `/formula1/sync/{year}`   | Sync F1 para un año específico |
 | POST   | `/pandascore/sync/{game}` | Sync esport específico         |
 
-## Admin — Auditoría — `/api/admin/audit`
+## Admin: Auditoría: `/api/admin/audit`
 
 Acceso: **ADMIN**
 
@@ -110,7 +110,7 @@ Acceso: **ADMIN**
 | ------ | ---- | ------------------------------------------------- | -------------------------------- |
 | GET    | `/`  | `actor`, `action`, `entity`, `dateFrom`, `dateTo` | Registros de auditoría paginados |
 
-## Admin — Load tests — `/api/admin/loadtest`
+## Admin: Load tests: `/api/admin/loadtest`
 
 Acceso: **ADMIN**
 
@@ -124,7 +124,7 @@ Acceso: **ADMIN**
 
 ---
 
-## Interno — `/api/internal`
+## Interno: `/api/internal`
 
 Acceso: **API Key** (verificada en controller)
 
@@ -134,7 +134,7 @@ Acceso: **API Key** (verificada en controller)
 | POST   | `/alerts/{alertId}/status`   | Callback de worker: reporta estado de procesamiento       |
 | POST   | `/alerts/{alertId}/artifact` | Callback de worker: sube URL de artefacto generado        |
 
-### Interno Discord — `/api/internal/discord`
+### Interno Discord: `/api/internal/discord`
 
 | Método | Ruta                                        | Descripción                                 |
 | ------ | ------------------------------------------- | ------------------------------------------- |
@@ -151,7 +151,7 @@ Acceso: **API Key** (verificada en controller)
 
 ---
 
-## Bot — `/api/bot`
+## Bot: `/api/bot`
 
 Acceso: **API Key** (`BotApiKeyFilter`)
 

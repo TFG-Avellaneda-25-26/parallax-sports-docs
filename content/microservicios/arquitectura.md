@@ -31,7 +31,7 @@ El fichero `settings.gradle.kts` define los siguientes módulos:
 | Koin                | 4.1.1                                                        |
 | JVM                 | 21                                                           |
 | Redis (Lettuce)     | Solo `ms-discord` y `ms-email`                               |
-| Motor HTTP          | CIO — 1000 conexiones máx., 100 por ruta                     |
+| Motor HTTP          | CIO: 1000 conexiones máx., 100 por ruta                     |
 | Serialización       | `kotlinx-serialization` JSON                                 |
 | Métricas            | Micrometer + Prometheus                                      |
 | Logs                | Logback + LogstashEncoder (JSON)                             |
@@ -52,7 +52,7 @@ Código compartido por todos los servicios.
 
 ### Clase base
 
-- `RedisStreamConsumer` — clase abstracta que implementa el loop de consumo de streams de Redis. Documentada en [[redis-stream-consumer]].
+- `RedisStreamConsumer`: clase abstracta que implementa el loop de consumo de streams de Redis. Documentada en [[redis-stream-consumer]].
 
 ### Configuración (`AppConfig`)
 
@@ -77,9 +77,9 @@ Data classes de configuración cargadas desde `application.conf` y `shared-data.
 
 ### Clientes HTTP compartidos
 
-- `NetworkModule` — `HttpClient` CIO compartido.
-- `PlaywrightClient` — realiza `POST /api/internal/screenshot` contra ms-playwright en la URL configurada.
-- `SpringCallbackService` — llama a Spring en `http://localhost:8080` por defecto. En Docker, `shared-data.conf` sobreescribe la URL mediante la variable de entorno `SPRING_BASE_URL` (configurada como `http://spring-boot:8080` en `docker-compose.teacher.yml`).
+- `NetworkModule`: `HttpClient` CIO compartido.
+- `PlaywrightClient`: realiza `POST /api/internal/screenshot` contra ms-playwright en la URL configurada.
+- `SpringCallbackService`: llama a Spring en `http://localhost:8080` por defecto. En Docker, `shared-data.conf` sobreescribe la URL mediante la variable de entorno `SPRING_BASE_URL` (configurada como `http://spring-boot:8080` en `docker-compose.teacher.yml`).
 
 ### DTOs
 
@@ -94,14 +94,14 @@ Data classes de configuración cargadas desde `application.conf` y `shared-data.
 
 ### Utilidades
 
-- `MapToDTO` — convierte el `Map<String, String>` de un mensaje de stream en `AlertStreamMessage`.
-- `StreamConsumerMetrics` — contadores y timers Micrometer del loop de consumo.
-- `MdcContext` — establece los campos MDC `alertId`, `workerId`, `channel` y `traceId` por mensaje procesado.
+- `MapToDTO`: convierte el `Map<String, String>` de un mensaje de stream en `AlertStreamMessage`.
+- `StreamConsumerMetrics`: contadores y timers Micrometer del loop de consumo.
+- `MdcContext`: establece los campos MDC `alertId`, `workerId`, `channel` y `traceId` por mensaje procesado.
 
 ### Observabilidad
 
-- `HealthModule` — rutas `/health` y `/health/ready`.
-- `MetricsModule` — endpoint `/metrics` en formato Prometheus.
+- `HealthModule`: rutas `/health` y `/health/ready`.
+- `MetricsModule`: endpoint `/metrics` en formato Prometheus.
 - Logs estructurados en JSON vía LogstashEncoder. El campo `app` se toma de la variable de entorno `SERVICE_NAME`.
 
 ## Patrón de inicio (`Application.kt`)

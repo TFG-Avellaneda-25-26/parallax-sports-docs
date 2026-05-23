@@ -29,7 +29,7 @@ sequenceDiagram
         PW->>Spring: GET /api/internal/render/event/{eventId}?channel=&tz=
         Spring-->>PW: HTML (Thymeleaf) + X-Render-Hash header
 
-        PW->>PW: Chromium headless — renderizar HTML → PNG<br/>viewport 1200×630, waitForSelector(".card", VISIBLE, 3s)
+        PW->>PW: Chromium headless: renderizar HTML → PNG<br/>viewport 1200×630, waitForSelector(".card", VISIBLE, 3s)
 
         PW->>Cloud: POST /upload (multipart: file=PNG, eventId, hash)
         Cloud-->>PW: UploadResponse { url }
@@ -55,7 +55,7 @@ Llamada: `POST ms-playwright:8087/api/internal/screenshot`
 }
 ```
 
-## Paso 1 — Check caché en Cloudinary
+## Paso 1: Check caché en Cloudinary
 
 `ms-playwright` consulta primero si el artefacto ya existe:
 
@@ -66,7 +66,7 @@ GET ms-cloudinary:8085/check/{eventId}/{renderHash}
 - Si `found = true` → devuelve la URL cacheada inmediatamente, **sin renderizar**.
 - Si `found = false` → continúa con el render.
 
-## Paso 2 — Obtener HTML desde Spring
+## Paso 2: Obtener HTML desde Spring
 
 ```
 GET spring-boot:8080/api/internal/render/event/{eventId}?channel={channel}&tz={timezone}
@@ -76,16 +76,16 @@ GET spring-boot:8080/api/internal/render/event/{eventId}?channel={channel}&tz={t
 - La cabecera de respuesta `X-Render-Hash` contiene el SHA-256 del contexto de render.
 - Este hash se usa como clave efectiva de almacenamiento (puede diferir del `renderHash` de la request).
 
-## Paso 3 — Captura con Playwright
+## Paso 3: Captura con Playwright
 
 `PlaywrightService.renderHtmlToImage(html)`:
 
 - Navegador: Chromium headless.
 - Viewport: **1200 × 630 px**.
-- Espera: `waitForSelector(".card", VISIBLE, timeout=3s)` — garantiza que el contenido está renderizado antes de capturar.
+- Espera: `waitForSelector(".card", VISIBLE, timeout=3s)`: garantiza que el contenido está renderizado antes de capturar.
 - Salida: PNG en bytes.
 
-## Paso 4 — Upload a Cloudinary
+## Paso 4: Upload a Cloudinary
 
 ```
 POST ms-cloudinary:8085/upload
@@ -100,7 +100,7 @@ hash=<X-Render-Hash>
 - `overwrite = false` → operación idempotente.
 - Devuelve `UploadResponse { url }`.
 
-## Paso 5 — Respuesta al worker
+## Paso 5: Respuesta al worker
 
 `ms-playwright` responde con `PlaywrightResponse { success: true, url }`.
 

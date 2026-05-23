@@ -14,9 +14,9 @@ redis-server --save 60 1 --loglevel warning --maxmemory 512mb --maxmemory-policy
 
 | Parámetro         | Valor | Efecto                                                                    |
 | ----------------- | ----- | ------------------------------------------------------------------------- |
-| `save 60 1`       | —     | Persiste en disco cada 60 s si ≥1 clave cambió                            |
-| `maxmemory 512mb` | —     | Límite de memoria                                                         |
-| `allkeys-lru`     | —     | Evicta claves menos usadas al llenarse (afecta caches, no datos críticos) |
+| `save 60 1`       |:     | Persiste en disco cada 60 s si ≥1 clave cambió                            |
+| `maxmemory 512mb` |:     | Límite de memoria                                                         |
+| `allkeys-lru`     |:     | Evicta claves menos usadas al llenarse (afecta caches, no datos críticos) |
 
 ## Pool Lettuce (Spring)
 
@@ -34,9 +34,9 @@ redis-server --save 60 1 --loglevel warning --maxmemory 512mb --maxmemory-policy
 | ---------------------- | ------ | ------------------ | ----------------------------------- |
 | `jwt:blacklist:{jti}`  | String | Restante del token | Access token revocado               |
 | `email-verify:{email}` | String | 10 min             | Código OTP de verificación de email |
-| `alerts.discord.v1`    | Stream | —                  | Mensajes de alerta canal Discord    |
-| `alerts.email.v1`      | Stream | —                  | Mensajes de alerta canal email      |
-| `alerts.telegram.v1`   | Stream | —                  | Mensajes de alerta canal Telegram   |
+| `alerts.discord.v1`    | Stream |:                  | Mensajes de alerta canal Discord    |
+| `alerts.email.v1`      | Stream |:                  | Mensajes de alerta canal email      |
+| `alerts.telegram.v1`   | Stream |:                  | Mensajes de alerta canal Telegram   |
 
 Los streams se mantienen con `XTRIM MAXLEN 200000` tras cada publish.
 

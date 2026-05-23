@@ -1,6 +1,6 @@
 ---
 title: ms-discord
-description: Microservicio de Discord — bot JDA multi-guild y consumidor de alertas que enruta embeds a canales de servidor o DMs según las preferencias del usuario.
+description: Microservicio de Discord: bot JDA multi-guild y consumidor de alertas que enruta embeds a canales de servidor o DMs según las preferencias del usuario.
 tags:
   - microservicios
   - discord
@@ -21,10 +21,10 @@ tags:
 
 El bot puede estar instalado en múltiples servidores (guilds) simultáneamente:
 
-- **`DiscordGuildConfig`** — almacena el canal por defecto y quién instaló el bot en ese guild.
-- **`DiscordGuildSportChannel`** — override de canal por deporte dentro de un guild.
-- **`UserDiscordDeliveryPreference`** — modo de entrega global del usuario: `DM` o `GUILD_CHANNEL`.
-- **`UserDiscordSportDeliveryOverride`** — override de modo de entrega por deporte.
+- **`DiscordGuildConfig`**: almacena el canal por defecto y quién instaló el bot en ese guild.
+- **`DiscordGuildSportChannel`**: override de canal por deporte dentro de un guild.
+- **`UserDiscordDeliveryPreference`**: modo de entrega global del usuario: `DM` o `GUILD_CHANNEL`.
+- **`UserDiscordSportDeliveryOverride`**: override de modo de entrega por deporte.
 
 ## Enrutado en `DiscordService`
 
@@ -52,10 +52,10 @@ else → throw ProviderPermanentFailureException("discord_unroutable")
 
 ## Ciclo de vida del guild
 
-- **`GuildJoinEvent`** — el bot se instala en un nuevo servidor:
+- **`GuildJoinEvent`**: el bot se instala en un nuevo servidor:
   1. Llama a `SpringDiscordAdminClient.installGuild()`.
   2. Envía un DM al owner del guild con el mensaje de configuración inicial.
-- **`GuildLeaveEvent`** — el bot es eliminado del servidor:
+- **`GuildLeaveEvent`**: el bot es eliminado del servidor:
   1. Llama a `SpringDiscordAdminClient.uninstallGuild()`.
   2. Limpia la configuración del guild en Spring.
 
@@ -66,7 +66,7 @@ else → throw ProviderPermanentFailureException("discord_unroutable")
 - Usado para el autocompletado del comando `/parallax-setchannel`.
 - Si el fetch devuelve vacío, mantiene la caché anterior (resiliencia ante fallos).
 
-## `SpringDiscordAdminClient` — endpoints
+## `SpringDiscordAdminClient`: endpoints
 
 | Método | Ruta                                                     | Descripción                                                    |
 | ------ | -------------------------------------------------------- | -------------------------------------------------------------- |
