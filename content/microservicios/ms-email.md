@@ -11,6 +11,13 @@ tags:
 
 `ms-email` envía alertas de eventos deportivos a usuarios por correo electrónico usando la API de Gmail. Corre en el puerto **8084**.
 
+## Fuentes
+
+- [OAuth2 REST API con Angular – Baeldung](https://www.baeldung.com/rest-api-spring-oauth2-angular)
+- [Ktor Documentation](https://ktor.io/docs/welcome.html)
+
+---
+
 ## Stream consumer
 
 - **Stream:** `alerts.email.v1`
@@ -64,7 +71,7 @@ Procesa la plantilla `verification` y envía el correo de verificación de cuent
 | ------ | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | GET    | `/auth/google/login`      | Redirige al consentimiento OAuth de Google (scopes: `gmail.send`; `access_type=offline`, `prompt=consent`) |
 | GET    | `/auth/callback?code=...` | Llama a `initialExchange`, almacena los tokens en Redis                                                    |
-| POST   | `/internal/email/verify`  | Body: `{email, verificationCode}`: envía el correo de verificación                                        |
+| POST   | `/internal/email/verify`  | Body: `{email, verificationCode}`: envía el correo de verificación                                         |
 
 ## Plantillas Thymeleaf
 
@@ -87,5 +94,3 @@ Procesa la plantilla `verification` y envía el correo de verificación de cuent
 | Puerto               | 8084                                                           |
 | `email.from`         | `"ParallaxSports"`                                             |
 | `oauth.redirect-uri` | `http://localhost:8084/auth/callback` (sobreescrito en Docker) |
-
-## Fuentes

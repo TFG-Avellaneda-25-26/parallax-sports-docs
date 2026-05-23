@@ -10,6 +10,12 @@ tags:
 
 # Proxy y configuración Angular/nginx
 
+## Fuentes
+
+- [Spring MVC CORS](https://docs.spring.io/spring-framework/reference/web/webmvc-cors.html)
+
+---
+
 ## Durante desarrollo (`ng serve`)
 
 Existen dos ficheros de proxy en la raíz del proyecto Angular:
@@ -134,5 +140,3 @@ Configurado como `''` (cadena vacía) en `AppConfig`:
 ```
 
 Esto hace que todas las peticiones de `ApiClient` sean relativas al origen actual (`/api/...`). nginx en producción y el proxy de `ng serve` en desarrollo se encargan de enrutar esas rutas al backend sin que el código Angular necesite conocer la URL del servidor.
-
-## Fuentes

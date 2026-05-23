@@ -10,6 +10,12 @@ tags:
 
 `ms-discord` implementa el bot de Discord de Parallax Sports y el consumidor del stream de alertas. Corre en el puerto **8082**.
 
+## Fuentes
+
+- [JDA Wiki: Introduction](https://jda.wiki/introduction/jda/)
+
+---
+
 ## Stream consumer
 
 - **Stream:** `alerts.discord.v1`
@@ -86,5 +92,3 @@ else → throw ProviderPermanentFailureException("discord_unroutable")
 - **Intents:** `MESSAGE_CONTENT`, `GUILD_MESSAGES`, `DIRECT_MESSAGES`
 - Si `devGuild` está configurado, los comandos slash se registran solo en ese guild (despliegue instantáneo en desarrollo). En caso contrario, registro global.
 - El bot llama a `awaitReady()` antes de registrar los comandos.
-
-## Fuentes

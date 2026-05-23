@@ -6,14 +6,20 @@ tags: [infra, docker, devops, despliegue]
 
 # Despliegue
 
+## Fuentes
+
+- [git-crypt para secretos en CI (YouTube)](https://youtu.be/M5IkdUunf8g?si=tpyqjalzocRfqMv4)
+
+---
+
 ## Prerequisitos
 
 | Herramienta                       | Versión | Para qué               |
 | --------------------------------- | ------- | ---------------------- |
 | Docker + Docker Compose           | v2      | Infraestructura en LXC |
-| JDK 21                            |:       | Spring local           |
-| Node 22 + npm 11                  |:       | Angular local          |
-| git-crypt + clave GPG o simétrica |:       | Desencriptar secrets   |
+| JDK 21                            | :       | Spring local           |
+| Node 22 + npm 11                  | :       | Angular local          |
+| git-crypt + clave GPG o simétrica | :       | Desencriptar secrets   |
 
 ## Configuración de secrets (una vez por máquina)
 
@@ -129,5 +135,3 @@ COMPOSE_PROFILES=apps docker compose stop spring-boot angular ms-discord ms-emai
 # Teardown completo (volúmenes de datos se conservan)
 COMPOSE_PROFILES=apps docker compose down
 ```
-
-## Fuentes

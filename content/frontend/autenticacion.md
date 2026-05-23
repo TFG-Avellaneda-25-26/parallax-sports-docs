@@ -10,6 +10,12 @@ tags:
 
 # Autenticación frontend
 
+## Fuentes
+
+- [OWASP: HttpOnly](https://owasp.org/www-community/HttpOnly)
+
+---
+
 ## HttpOnly cookies
 
 Spring Boot emite dos cookies al autenticar al usuario:
@@ -104,5 +110,3 @@ Ver [[frontend/rutas-paginas|Rutas y páginas]] para el árbol de rutas completo
 - Se ejecuta después de `authGuard` (el usuario ya está cargado).
 - Lee `UserStore.isVerified()`: refleja `user.emailVerified`.
 - Si `false`: bloquea el acceso a `/settings` hasta que el usuario verifique su email.
-
-## Fuentes

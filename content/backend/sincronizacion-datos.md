@@ -6,6 +6,17 @@ tags: [backend, sincronizacion, external-api, formula1, basketball, esports]
 
 # Sincronización de datos
 
+## Fuentes
+
+- [PandaScore API – Introducción](https://developers.pandascore.co/docs/introduction)
+- [PandaScore API – Referencia](https://developers.pandascore.co/reference/get_additions)
+- [OpenF1 API](https://openf1.org/docs/#api-endpoints)
+- [BallDontLie NBA/WNBA API](https://nba.balldontlie.io/#nba-api)
+- [Spring: RestClient](https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-webclient)
+- [PostgreSQL UPSERT – GeeksForGeeks](https://www.geeksforgeeks.org/postgresql/postgresql-upsert/)
+
+---
+
 ## Arquitectura común
 
 Cada proveedor implementa la interfaz `ExternalApiDailySyncJob`. El scheduler central `ExternalApiDailyScheduler` los ejecuta todos con cron `0 30 0 * * *` (00:30 UTC diario).
@@ -100,5 +111,3 @@ Evento Spring publicado tras cada sync exitoso.
 - Implementado con `@TransactionalEventListener(phase = AFTER_COMMIT)`.
 - Garantiza que los eventos están comprometidos en BD antes de generar alertas.
 - `UserEventAlertGenerationService` procesa el evento para crear o actualizar `UserEventAlert` por cada usuario seguidor.
-
-## Fuentes

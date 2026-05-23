@@ -9,6 +9,28 @@ tags:
 
 # Animaciones GSAP
 
+## Fuentes
+
+- [GSAP Docs v3](https://gsap.com/docs/v3/)
+- [GSAP SplitText – CodePen Collection](https://codepen.io/collection/bNPJyv?cursor=eyJwYWdlIjo4fQ==)
+- [Cómo descubrí GSAP (YouTube)](https://youtu.be/shotcE73Vns?si=DoLea1O3wuNkfXxw)
+- [Guía oficial GSAP SplitText (YouTube)](https://youtu.be/L1afzNAhI40?si=nhS_tekzVlkkFsth)
+- [CSS tricks (YouTube)](https://youtu.be/Ol62e-dWu0E?si=LgRQi_9TWnsQ_JSP)
+- [Ideas de websites cool (YouTube)](https://youtu.be/YjIM4HYSQaM?si=VDe7QRfsx8ZJlJ9g)
+- [Awwwards](https://www.awwwards.com)
+- [lightweight.info – inspiración de botón](https://lightweight.info/en)
+- [SillySoftware Projects](https://www.sillysoftware.club/projects)
+- [vladburca.com](https://vladburca.com/contact)
+- [Melondy](https://melondy.com)
+- [Ambient Canvas Backgrounds – tympanus](https://tympanus.net/Development/AmbientCanvasBackgrounds/index5.html)
+- [stripe.dev](https://stripe.dev)
+- [Raycast](https://www.raycast.com/)
+- [Utopia Tokyo](https://www.utopiatokyo.com)
+- [Lucide Icons](https://lucide.dev)
+- [caniuse.com](https://caniuse.com)
+
+---
+
 ## Registro de plugins
 
 **Ubicación:** `shared/lib/gsap.ts`
@@ -114,5 +136,3 @@ ScrollTrigger.create({
 ```
 
 La carga se omite si `EventStore.isLoading()` es `true` o `hasMore()` es `false`.
-
-## Fuentes

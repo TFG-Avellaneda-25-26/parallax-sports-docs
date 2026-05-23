@@ -9,6 +9,15 @@ tags:
 
 # Formularios Signal
 
+## Fuentes
+
+- [Angular Forms: Signal-based Models](https://angular.dev/guide/forms/signals/models)
+- [ng-otp-input (GitHub)](https://github.com/code-farmz/ng-otp-input)
+- [Estilizar el caret de inputs (YouTube)](https://youtu.be/x2DSNiSKd-Y?si=2RDCervdkfE9U62s)
+- [Angular Accessibility (ARIA)](https://angular.dev/guide/aria/overview)
+
+---
+
 Parallax Sports usa la API experimental `@angular/forms/signals` para formularios completamente reactivos, sin llamadas imperativas a `form.submit()` ni subscripciones manuales.
 
 ## API base
@@ -86,5 +95,3 @@ El diálogo de verificación de email usa `ReactiveFormsModule` (no signal forms
 | Animación        | GSAP: entrada escalonada de cada celda al montar el componente |
 
 El código OTP se envía a `POST /api/auth/verify-email` con el token de 6 dígitos. Ver [[frontend/animaciones|Animaciones GSAP]] para el detalle de la animación de entrada.
-
-## Fuentes

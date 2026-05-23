@@ -8,6 +8,12 @@ tags:
   - gradle
 ---
 
+## Fuentes
+
+- [Ktor Documentation](https://ktor.io/docs/welcome.html)
+
+---
+
 ## Proyecto Gradle multi-módulo
 
 El fichero `settings.gradle.kts` define los siguientes módulos:
@@ -31,7 +37,7 @@ El fichero `settings.gradle.kts` define los siguientes módulos:
 | Koin                | 4.1.1                                                        |
 | JVM                 | 21                                                           |
 | Redis (Lettuce)     | Solo `ms-discord` y `ms-email`                               |
-| Motor HTTP          | CIO: 1000 conexiones máx., 100 por ruta                     |
+| Motor HTTP          | CIO: 1000 conexiones máx., 100 por ruta                      |
 | Serialización       | `kotlinx-serialization` JSON                                 |
 | Métricas            | Micrometer + Prometheus                                      |
 | Logs                | Logback + LogstashEncoder (JSON)                             |
@@ -112,5 +118,3 @@ Todos los servicios siguen el mismo patrón de arranque:
 2. Inicializar el recurso específico del proveedor (bot JDA / browser Playwright / SDK de Cloudinary).
 3. Inyectar y lanzar el consumidor en un `CoroutineScope(Dispatchers.Default)`.
 4. Registrar `ApplicationStopped` → shutdown graceful.
-
-## Fuentes

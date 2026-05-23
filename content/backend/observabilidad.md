@@ -6,6 +6,13 @@ tags: [backend, observabilidad, metricas, micrometer, prometheus, logs, mdc]
 
 # Observabilidad
 
+## Fuentes
+
+- [Spring Boot con Prometheus – Baeldung](https://www.baeldung.com/spring-boot-prometheus)
+- [Spring Boot con Loki y Grafana – Baeldung](https://www.baeldung.com/spring-boot-loki-grafana-logging)
+
+---
+
 Para el stack de infraestructura (Prometheus, Loki, Grafana, Alloy) ver [[infra/observabilidad-stack|Stack de observabilidad]].
 
 ---
@@ -18,21 +25,21 @@ Métricas del pipeline de alertas de eventos.
 
 | Métrica                   | Tipo                                    | Etiquetas               |
 | ------------------------- | --------------------------------------- | ----------------------- |
-| `alerts.pipeline.latency` | Histogram (percentiles 0.5, 0.95, 0.99) |:                       |
+| `alerts.pipeline.latency` | Histogram (percentiles 0.5, 0.95, 0.99) | :                       |
 | `alerts.generated.total`  | Counter                                 | `channel`               |
 | `alerts.dispatched.total` | Counter                                 | `channel`               |
 | `alerts.sent.total`       | Counter                                 | `channel`               |
 | `alerts.failed.total`     | Counter                                 | `channel`, `error_code` |
-| `alerts.retried.total`    | Counter                                 |:                       |
+| `alerts.retried.total`    | Counter                                 | :                       |
 
 ### AuthMetrics
 
 | Métrica                                   | Tipo    | Etiquetas                                   |
 | ----------------------------------------- | ------- | ------------------------------------------- |
-| `auth.registrations.total`                | Counter |:                                           |
+| `auth.registrations.total`                | Counter | :                                           |
 | `auth.logins.total`                       | Counter | `provider` (`local` / `google` / `discord`) |
-| `auth.token.refresh.total`                | Counter |:                                           |
-| `auth.token.refresh.reuse_detected.total` | Counter |:                                           |
+| `auth.token.refresh.total`                | Counter | :                                           |
+| `auth.token.refresh.reuse_detected.total` | Counter | :                                           |
 
 ### ExternalApiMetrics
 
@@ -94,5 +101,3 @@ Endpoint: `GET /api/admin/audit`: paginado, filtrable por `actor`, `action`, `en
 | `/actuator/mappings`   | Público    |
 | `/actuator/conditions` | Público    |
 | `/actuator/**` (resto) | Solo ADMIN |
-
-## Fuentes

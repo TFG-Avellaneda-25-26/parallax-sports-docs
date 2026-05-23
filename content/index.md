@@ -22,4 +22,4 @@ description: "Documentación del proyecto Parallax Sports, un dashboard personal
 
 - **[[flujos/index|Flujos]]**: Flujos end-to-end: entrega de alertas, pipeline de artefactos, registro de usuario, sincronización de datos y OAuth Discord.
 
-- **[[diario/index|Diario]]**: Proceso de desarrollo: equipo, decisiones técnicas, dificultades, deuda técnica y uso de IA.
+- **[[diario/index|Diario]]**: Proceso de desarrollo: dificultades, mejorasy uso de IA.

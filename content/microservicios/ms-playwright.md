@@ -10,6 +10,12 @@ tags:
 
 `ms-playwright` renderiza tarjetas de eventos como imágenes PNG usando Chromium headless y orquesta el pipeline completo de generación y caché de artefactos. Corre en el puerto **8087**.
 
+## Fuentes
+
+- [Playwright: Introducción](https://playwright.dev/docs/intro)
+
+---
+
 ## `PlaywrightService`
 
 Inicializa Playwright al arrancar: `Playwright.create()` → `chromium().launch(headless=true)` → instancia `Browser`.
@@ -74,5 +80,3 @@ Utiliza `Dockerfile.playwright`, separado del `Dockerfile` de los demás servici
 
 - **Imagen base:** `mcr.microsoft.com/playwright/java:v1.58.0-noble`: incluye los binarios de Chromium preinstalados.
 - **Usuario de ejecución:** `pwuser`.
-
-## Fuentes

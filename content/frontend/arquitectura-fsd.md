@@ -9,6 +9,12 @@ tags:
 
 # Arquitectura Feature-Sliced Design
 
+## Fuentes
+
+- [Feature-Sliced Design: Getting Started](https://feature-sliced.design/docs/get-started/overview)
+
+---
+
 Parallax Sports aplica [Feature-Sliced Design (FSD)](https://feature-sliced.design/) sobre Angular 21 con standalone components y sin NgModules.
 
 ## Las 6 capas
@@ -120,5 +126,3 @@ Definidos en `tsconfig.json` bajo `compilerOptions.paths`:
 | `@shared/*`   | `src/shared/*`   |
 
 Cada capa expone su API pública a través de un fichero `index.ts` barrel. Los imports externos a una capa deben usar el barrel, nunca rutas internas.
-
-## Fuentes

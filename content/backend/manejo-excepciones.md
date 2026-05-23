@@ -1,12 +1,20 @@
 ---
 title: Manejo de excepciones
-description: Estrategia de gestión de errores en Parallax Sports basada en Problem Details RFC 7807, jerarquía de excepciones de dominio y auditoría AOP.
+description: Estrategia de gestión de errores en Parallax Sports basada en Problem Details RFC 9457, jerarquía de excepciones de dominio y auditoría AOP.
 tags: [backend, excepciones, errores, auditoria, aop]
 ---
 
 # Manejo de excepciones
 
-## Problem Details RFC 7807
+## Fuentes
+
+- [RFC 9457: Problem Details for HTTP APIs](https://www.rfc-editor.org/info/rfc9457)
+- [Anotaciones personalizadas en Java – Baeldung](https://www.baeldung.com/java-custom-annotation)
+- [AOP con anotaciones en Spring – Baeldung](https://www.baeldung.com/spring-aop-annotation)
+
+---
+
+## Problem Details RFC 9457
 
 Todos los errores devuelven `Content-Type: application/problem+json` con la estructura:
 
@@ -86,5 +94,3 @@ Aspecto Spring `@Around` que intercepta todos los métodos anotados con `@Audite
 - Cambios en datos del usuario.
 
 Los registros son consultables vía `GET /api/admin/audit` (paginado, filtrable por actor, acción, entidad y fecha).
-
-## Fuentes

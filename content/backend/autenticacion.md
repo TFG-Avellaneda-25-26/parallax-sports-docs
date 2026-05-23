@@ -6,6 +6,20 @@ tags: [backend, autenticacion, seguridad, jwt, oauth2]
 
 # Autenticación
 
+## Fuentes
+
+- [Spring MVC CORS](https://docs.spring.io/spring-framework/reference/web/webmvc-cors.html)
+- [Spring Security: CORS](https://docs.spring.io/spring-security/reference/servlet/integrations/cors.html)
+- [Spring Boot: CORS](https://docs.spring.io/spring-boot/reference/web/servlet.html#web.servlet.spring-mvc.cors)
+- [Spring Boot: CorsEndpointProperties](https://docs.spring.io/spring-boot/api/java/org/springframework/boot/actuate/autoconfigure/endpoint/web/CorsEndpointProperties.html)
+- [JWT con Spring Security – Baeldung](https://www.baeldung.com/spring-security-oauth-jwt)
+- [OAuth2 REST API con Angular – Baeldung](https://www.baeldung.com/rest-api-spring-oauth2-angular)
+- [Anotaciones personalizadas en Java – Baeldung](https://www.baeldung.com/java-custom-annotation)
+- [AOP con anotaciones en Spring – Baeldung](https://www.baeldung.com/spring-aop-annotation)
+- [OWASP: HttpOnly](https://owasp.org/www-community/HttpOnly)
+
+---
+
 ## JWT
 
 **Algoritmo:** HS256 (HMAC-SHA256). El secreto debe tener mínimo 32 bytes.
@@ -62,7 +76,40 @@ sequenceDiagram
     end
 ```
 
-**Revocación de access tokens:** clave Redis `jwt:blacklist:{jti}` con TTL igual al tiempo restante del token. `JwtAuthenticationFilter` consulta esta clave antes de aceptar el token.
+## Revocación híbrida de tokens
+
+Los dos tipos de token se revocan con mecanismos distintos según su vida útil:
+
+| Token   | TTL    | Almacén    | Mecanismo                          |
+| ------- | ------ | ---------- | ---------------------------------- |
+| Access  | 15 min | Redis      | Blacklist por JTI con TTL residual |
+| Refresh | 7 días | PostgreSQL | `revoked_at` + detección de replay |
+
+### Access token: blacklist en Redis
+
+Al hacer logout (o cuando se detecta un incidente de seguridad), `RefreshTokenService.blacklistAccessToken(jti, ttlSeconds)` escribe:
+
+```
+SET jwt:blacklist:{jti} "1" EX <segundos_restantes>
+```
+
+`JwtAuthenticationFilter` llama a `isAccessTokenBlacklisted(jti)` en cada request autenticado. Si la clave existe → 401, el token se rechaza aunque la firma sea válida.
+
+La entrada expira sola cuando el token habría caducado de todas formas, así que Redis nunca acumula entradas muertas.
+
+### Refresh token: revocación en base de datos
+
+Los refresh tokens se almacenan en `refresh_tokens` como `SHA-256(raw_token)` (nunca el token en claro). La validación comprueba tres condiciones:
+
+1. Registro existe y `revoked_at IS NULL`
+2. `expires_at` no ha pasado
+3. `SHA-256(raw_token_presentado)` coincide con `token_hash`
+
+En cada rotación (`POST /api/auth/refresh`) el token anterior se marca con `revoked_at = now()` y se emite uno nuevo. Si alguien presenta un token **ya revocado** (replay de token robado), se ejecuta `revokeAllByUser(userId)`: todos los refresh tokens del usuario quedan revocados y las sesiones activas caducan al expirar los access tokens en curso (máximo 15 min).
+
+### ¿Por qué no blacklist en Redis para los refresh también?
+
+Los refresh tokens duran 7 días. Mantenerlos en Redis implicaría entradas con TTL de 7 días por cada sesión activa, más la necesidad de recorrer todas para hacer revocación masiva por usuario. PostgreSQL ya está disponible, soporta `UPDATE WHERE user_id = ?` de forma trivial y persiste los datos en disco, lo que es relevante para un token de larga duración.
 
 ---
 
@@ -118,5 +165,3 @@ BotApiKeyFilter → JwtAuthenticationFilter → Spring Security filter chain
 ### CORS
 
 Origen único: `APP_FRONTEND_URL`. `credentials=true`. Métodos permitidos: `GET, POST, PUT, PATCH, DELETE, OPTIONS`.
-
-## Fuentes

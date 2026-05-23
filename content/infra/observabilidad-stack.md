@@ -6,6 +6,14 @@ tags: [infra, observabilidad, prometheus, loki, grafana]
 
 # Stack de observabilidad
 
+## Fuentes
+
+- [Spring Boot con Prometheus – Baeldung](https://www.baeldung.com/spring-boot-prometheus)
+- [Prometheus: modelo de datos](https://prometheus.io/docs/concepts/data_model/)
+- [Spring Boot con Loki y Grafana – Baeldung](https://www.baeldung.com/spring-boot-loki-grafana-logging)
+
+---
+
 ## Grafana Alloy (colector)
 
 - Recolecta logs de contenedores Docker vía `/var/run/docker.sock` (montado en solo lectura)
@@ -64,5 +72,3 @@ Dashboards provisionados automáticamente (sin configuración manual):
 - k6 envía métricas via remote write a Prometheus (variable `PROM_RW_URL`)
 - El `LoadTestRunnerService` de Spring inicia contenedores k6 mediante la API docker-java
 - Scripts en `loadtests/` del [[guia-profesor|repositorio de infra]]
-
-## Fuentes

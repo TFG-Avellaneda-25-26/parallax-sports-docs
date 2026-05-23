@@ -6,6 +6,13 @@ tags: [infra, ci-cd, jenkins, docker]
 
 # CI/CD con Jenkins
 
+## Fuentes
+
+- [Jenkins: Pipeline](https://www.jenkins.io/doc/book/pipeline/)
+- [git-crypt para secretos en CI (YouTube)](https://youtu.be/M5IkdUunf8g?si=tpyqjalzocRfqMv4)
+
+---
+
 ## Jenkins
 
 - Corre en Docker en el LXC, con `/var/run/docker.sock` y `/opt/stack` montados
@@ -60,5 +67,3 @@ Variables de entorno: `SERVICES = 'ms-discord ms-email ms-cloudinary'`, `PLAYWRI
 
 - Jenkins pushea a `localhost:5000` (registry local en el LXC)
 - Para publicar en Docker Hub para la evaluación del profesor: taggear y pushear manualmente (ver [[guia-profesor]])
-
-## Fuentes

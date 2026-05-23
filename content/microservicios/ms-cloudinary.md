@@ -10,6 +10,12 @@ tags:
 
 `ms-cloudinary` es un servicio HTTP puro sin consumidor de Redis. Spring no lo llama directamente; es [[ms-playwright]] quien lo invoca como parte del pipeline de generación de artefactos. Corre en el puerto **8085**.
 
+## Fuentes
+
+- [Cloudinary Documentation](https://cloudinary.com/documentation/cloudinary_references)
+
+---
+
 ## API
 
 | Método | Ruta                      | Descripción                                                                                        |
@@ -48,5 +54,3 @@ tags:
 | `cloud-name` | Desde `application-secrets.conf` |
 | `api-key`    | Desde `application-secrets.conf` |
 | `api-secret` | Desde `application-secrets.conf` |
-
-## Fuentes

@@ -20,8 +20,50 @@ tags: [diario, dificultades, debugging]
 
 ---
 
-## [Placeholder: otras dificultades]
+## FSD sin documentación previa
 
-<!-- Añadir más problemas y soluciones -->
+Adoptamos [Feature-Sliced Design](https://feature-sliced.design/) como arquitectura del frontend Angular. La metodología es sólida y merece la pena, pero cometimos el error de empezar a desarrollar antes de documentar bien los procedimientos y de tener claro dónde iba cada pieza.
+
+El resultado fue confusión recurrente: ramas que mezclaban `features` y `pages`, dudas sobre si algo pertenecía a `widgets` o a `shared`, y convenciones que cada uno aplicaba de forma distinta. Al ser una metodología nueva para el equipo, sin una guía interna de referencia, cada decisión de estructura se resolvía sobre la marcha.
+
+**Lección:** Con una metodología nueva, la documentación interna debe preceder al código. Unas pocas horas definiendo las reglas de cada capa habrían ahorrado semanas de refactorizaciones y conflictos de ramas.
+
+---
+
+## Redis: documentación densa y curva de aprendizaje pronunciada
+
+Redis fue uno de los bloques más costosos del proyecto. La documentación oficial es extensa pero no siempre fácil de seguir, especialmente en los apartados de Streams, grupos de consumidores y gestión de TTL. Al principio dependimos más de lo que nos hubiera gustado de la IA para salir adelante, aunque con el tiempo ganamos soltura.
+
+Ver también: [[uso-ia#Cuando la IA no ayudó o generó problemas|Uso de IA — Redis]].
+
+---
+
+## Balance entre curiosidad técnica y priorización de tareas
+
+Teníamos una filosofía clara: ir más allá de lo visto en clase, leer artículos, ver vídeos, profundizar. Eso es positivo y nos llevó a soluciones interesantes. El problema fue que no supimos combinar esa mentalidad con la disciplina de priorizar las tareas más importantes en cada momento.
+
+El resultado fue que dedicábamos tiempo a explorar tecnologías o características antes de tener estabilizada la base, lo que a veces generaba deuda técnica o retrasos en funcionalidades críticas.
+
+---
+
+## Ausencia de tests en una arquitectura compleja
+
+Desde el principio decidimos no escribir tests. En un proyecto con Redis Streams, PostgreSQL, varios microservicios Ktor y una API Spring, esa decisión tuvo un coste real: verificar que los componentes se comunicaban bien, que los contratos de los streams se respetaban y que las funcionalidades no tenían regresiones requería pruebas manuales largas y repetitivas.
+
+Testing automatizado habría agilizado el ciclo de desarrollo de forma significativa, especialmente para los flujos de integración entre servicios.
+
+---
+
+## Ktor: múltiples refactorizaciones hasta encontrar la estructura
+
+Ktor era un framework nuevo para el equipo. La organización inicial de los microservicios no se ajustaba bien a lo que queríamos, y necesitamos varias refactorizaciones hasta dar con una estructura limpia y consistente. Cada iteración enseñaba algo, pero también consumía tiempo que podríamos haber invertido en funcionalidades.
+
+---
+
+## Angular 21: features experimentales y debugging sin red
+
+Usar Angular 21 fue en general una buena experiencia: los Signal Forms son mucho más naturales que los reactivos o los template-driven vistos en clase. El problema llegó al implementar features nuevos de Angular 21 como el `aria-tree` y el `autocomplete` con ARIA completo, que en las demos y en los docs pintaban bien pero en producción requerían un debugging tedioso y poco documentado.
+
+La IA aquí no ayudaba prácticamente nada, lo cual fue positivo en el sentido de que nos obligó a buscarnos la vida, pero costoso en tiempo. También aparecieron bugs curiosos en la combinación señales + View Transition API y en el `aria-tree` que, una vez encontrados, resultaban ser enredos o tonterías que daban más risa que frustración.
 
 ## Fuentes

@@ -6,6 +6,12 @@ tags: [backend, redis, streams, protocolo, microservicios]
 
 # Contrato Redis Streams
 
+## Fuentes
+
+- [Redis: Pub/Sub](https://redis.io/docs/latest/develop/pubsub/)
+
+---
+
 Define el protocolo entre el productor (Spring Boot) y los consumidores (workers Ktor) para el despacho de alertas.
 
 ---
@@ -100,5 +106,3 @@ Estos campos **no los establece el productor**; el worker los rellena en su esta
 ## Versionado de esquema
 
 El campo `schemaVersion=v1` permite a los consumidores detectar el formato del payload y adaptarse a futuras versiones sin romper compatibilidad hacia atrás. Adiciones de campos nuevos en v1 son no-breaking (consumidores ignorarán campos desconocidos).
-
-## Fuentes
