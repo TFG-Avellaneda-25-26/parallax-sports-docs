@@ -13,6 +13,7 @@ tags:
 ## Fuentes
 
 - [OWASP: HttpOnly](https://owasp.org/www-community/HttpOnly)
+- [OAuth2 REST API con Angular – Baeldung](https://www.baeldung.com/rest-api-spring-oauth2-angular)
 
 ---
 

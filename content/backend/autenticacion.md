@@ -17,6 +17,10 @@ tags: [backend, autenticacion, seguridad, jwt, oauth2]
 - [Anotaciones personalizadas en Java – Baeldung](https://www.baeldung.com/java-custom-annotation)
 - [AOP con anotaciones en Spring – Baeldung](https://www.baeldung.com/spring-aop-annotation)
 - [OWASP: HttpOnly](https://owasp.org/www-community/HttpOnly)
+- [Spring CORS – Baeldung](https://www.baeldung.com/spring-cors)
+- [JWT Revocation – OneUptime](https://oneuptime.com/blog/post/2026-02-02-jwt-revocation/view)
+- [How to Invalidate a JWT Using a Blacklist – DEV](https://dev.to/chukwutosin_/how-to-invalidate-a-jwt-using-a-blacklist-28dl)
+- [Revoking Access with a JWT Blacklist – SuperTokens](https://supertokens.com/blog/revoking-access-with-a-jwt-blacklist)
 
 ---
 

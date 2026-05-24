@@ -14,6 +14,7 @@ tags: [backend, sincronizacion, external-api, formula1, basketball, esports]
 - [BallDontLie NBA/WNBA API](https://nba.balldontlie.io/#nba-api)
 - [Spring: RestClient](https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-webclient)
 - [PostgreSQL UPSERT – GeeksForGeeks](https://www.geeksforgeeks.org/postgresql/postgresql-upsert/)
+- [Spring WebClient – Baeldung](https://www.baeldung.com/spring-5-webclient)
 
 ---
 

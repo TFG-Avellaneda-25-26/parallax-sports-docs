@@ -11,6 +11,10 @@ tags: [infra, observabilidad, prometheus, loki, grafana]
 - [Spring Boot con Prometheus – Baeldung](https://www.baeldung.com/spring-boot-prometheus)
 - [Prometheus: modelo de datos](https://prometheus.io/docs/concepts/data_model/)
 - [Spring Boot con Loki y Grafana – Baeldung](https://www.baeldung.com/spring-boot-loki-grafana-logging)
+- [Grafana Loki – Documentación oficial](https://grafana.com/docs/loki/latest/)
+- [Grafana Alloy – Documentación oficial](https://grafana.com/docs/alloy/latest/)
+- [Grafana k6 – Referencia de opciones](https://grafana.com/docs/k6/latest/using-k6/k6-options/reference/)
+- [Grafana – Dashboards](https://grafana.com/docs/grafana/latest/visualizations/dashboards/)
 
 ---
 
