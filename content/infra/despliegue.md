@@ -135,3 +135,25 @@ COMPOSE_PROFILES=apps docker compose stop spring-boot angular ms-discord ms-emai
 # Teardown completo (volúmenes de datos se conservan)
 COMPOSE_PROFILES=apps docker compose down
 ```
+
+## Re-autorizar Gmail OAuth en el LXC
+
+El _refresh token_ de Gmail vive en el volumen `./data/redis` del LXC. Si se borra ese volumen (`down -v`) hay que rehacer el flujo OAuth contra el `ms-email` del LXC. El problema: el _redirect URI_ registrado en Google Cloud Console es `http://localhost:8084/auth/callback`, y Google **solo admite `http://` para `localhost`/`127.0.0.1`** (nunca para `192.168.1.29` u otra IP de LAN — exigiría HTTPS). La solución es un túnel SSH puntual.
+
+**Paso 1** — Desde el portátil, abrir un túnel `localhost:8084 → LXC:8084` (dejar la terminal abierta):
+
+```bash
+ssh -L 8084:localhost:8084 root@192.168.1.29
+```
+
+**Paso 2** — En el navegador del portátil:
+
+```text
+http://localhost:8084/auth/google/login
+```
+
+**Paso 3** — Aceptar el consentimiento en Google con la cuenta `daw590779@gmail.com` (permisos `gmail.send`).
+
+**Paso 4** — Google redirige a `http://localhost:8084/auth/callback?code=...`. El navegador sigue el redirect → pasa por el túnel → llega al `ms-email` del LXC → guarda el _refresh token_ en Redis. La página muestra `Success Refresh token saved in redis`.
+
+**Paso 5** — Cerrar el túnel. El token persiste en `./data/redis` mientras no se borre el volumen.

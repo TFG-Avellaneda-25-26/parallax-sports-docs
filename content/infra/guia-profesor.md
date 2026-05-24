@@ -142,14 +142,19 @@ Ver también [[ci-cd|CI/CD con Jenkins]] para el flujo de build completo.
 
 El microservicio `ms-email` envía correos mediante la **Gmail API con OAuth2**. Para funcionar necesita un _refresh token_ almacenado en Redis. Dicho token **se persiste en el volumen Docker de Redis**, por lo que en un despliegue normal los profesores no necesitan hacer nada.
 
-Si se arranca desde cero sin volúmenes previos (o se usó `down -v`), hay que autorizar la cuenta de Gmail una vez:
+Si se arranca desde cero sin volúmenes previos (o se usó `down -v`), hay que autorizar la cuenta de Gmail una vez.
 
-1. Con el stack ya levantado, abrir en el navegador:
+> [!important]
+> El _redirect URI_ registrado en Google Cloud Console es `http://localhost:8084/auth/callback`. Google **solo admite `http://` cuando el host es `localhost` o `127.0.0.1`**, así que la autorización debe hacerse desde la **misma máquina** donde corre `ms-email` (es decir, desde el equipo donde se ha levantado el `docker-compose.teacher.yml`). No funciona abrir la URL desde otro dispositivo usando la IP de la LAN.
 
+1. Con el stack ya levantado en tu máquina, abrir en el navegador **de esa misma máquina**:
+
+   ```text
+   http://localhost:8084/auth/google/login
    ```
-   http://TU_IP:8084/auth/google/login
-   ```
 
-2. Google redirige a su pantalla de consentimiento (cuenta del proyecto: `daw590779@gmail.com`). Aceptar los permisos de `gmail.send`.
+2. Google redirige a la pantalla de consentimiento (cuenta del proyecto: `daw590779@gmail.com`). Aceptar los permisos de `gmail.send`.
 
-3. Google redirige a `http://localhost:8084/auth/callback` y el servicio responde `Success Refresh token saved in redis`. A partir de ese momento el envío de correos funciona con normalidad.
+3. Google redirige el navegador a `http://localhost:8084/auth/callback?code=...` y `ms-email` intercambia el código por un _refresh token_ que persiste en Redis. La página muestra `Success Refresh token saved in redis`.
+
+El _refresh token_ queda guardado en el volumen `./data/redis` y no hay que repetir el proceso salvo que se borre el volumen (`down -v`).
