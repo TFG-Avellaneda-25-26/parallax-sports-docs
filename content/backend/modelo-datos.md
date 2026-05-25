@@ -422,6 +422,7 @@ Restricción unique: `(provider, provider_subject)`.
 | `default_view` | enum              | `cards` / `table` |
 | `timezone`     | varchar           | IANA tz           |
 | `date_format`  | varchar           |                   |
+| `lang`         | varchar           | Default `en`      |
 | `updated_at`   | timestamptz       |                   |
 
 ---

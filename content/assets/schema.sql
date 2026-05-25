@@ -249,6 +249,7 @@ CREATE TABLE IF NOT EXISTS user_settings (
     CHECK (default_view IN ('cards', 'table')),
   timezone text NOT NULL DEFAULT 'UTC',
   locale text NOT NULL DEFAULT 'en',
+  lang text NOT NULL DEFAULT 'en',
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
