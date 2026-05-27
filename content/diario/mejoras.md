@@ -12,8 +12,4 @@ tags: [diario, mejoras, deuda-tecnica]
 
 **Responsive:** aunque la mayor parte de la interfaz funciona en móvil, hay vistas que no están completamente revisadas en pantallas pequeñas. Requiere una pasada sistemática por todas las páginas.
 
-## Features incompletas
-
-**PandaScore — esports:** la integración con PandaScore está operativa, pero la API cubre muchos más esports de los que actualmente se muestran en la aplicación. Ampliar el soporte a más competiciones y juegos es una mejora directa con la infraestructura ya en pie.
-
-**i18n:** la aplicación está en inglés. Añadir internacionalización (al menos español) a con Angular i18n o `ngx-translate`.
+**Redis Fallback con http:** el sistema de alertas depende completamente de Redis Streams para propagar eventos entre el backend Spring y los microservicios Ktor. Si Redis cae o no está disponible, no existe ningún mecanismo de fallback: los eventos simplemente se pierden y los microservicios no reciben las alertas. Queda pendiente implementar una capa de resiliencia que, ante la ausencia de Redis, recurra a llamadas HTTP directas entre servicios. Esto implicaría que el backend detecte el fallo de conexión con Redis y, en ese caso, envíe las notificaciones mediante peticiones HTTP a los endpoints correspondientes de cada microservicio, garantizando así la entrega de alertas aunque la infraestructura de mensajería no esté operativa.
